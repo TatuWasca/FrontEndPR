@@ -1,16 +1,19 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { DiapositivasInformacionComponent } from './diapositivas-informacion/diapositivas-informacion.component';
+import { DiapositivaHeaderComponent } from './diapositiva-header/diapositiva-header.component';
+import { DiapositivaAcercaDeComponent } from './diapositiva-acerca-de/diapositiva-acerca-de.component';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [ BrowserModule, FormsModule, HttpClientModule],
+  declarations: [ AppComponent, LoginComponent, DiapositivasInformacionComponent, DiapositivaHeaderComponent, DiapositivaAcercaDeComponent],
+  bootstrap: [ AppComponent ],
 })
-export class AppModule { }
+export class AppModule{ }

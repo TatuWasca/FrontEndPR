@@ -1,0 +1,14 @@
+<!--Div para permitir la edición de la diapositiva acerca de-->
+<form method="POST">
+    <div class="borde">
+        <!--Inputs para el nombre y descripción-->
+        <div>
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input class="form-control" type="text" [ngModel]="descripcion" name="descripcion"/>
+        </div>
+        <!--Div que realiza el submit-->
+        <div style="padding-top: 20px">
+            <input class="btn btn-primary" type="submit" value="Guardar" (click)="modificar()"/>
+        </div>
+    </div> 
+</form>

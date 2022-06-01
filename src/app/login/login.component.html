@@ -1,0 +1,29 @@
+<!--Modal para el login-->
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form>
+                <!--Cabecera Login-->
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+                </div>
+
+                <!--Input de email-->
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <input type="email" [(ngModel)]="email" name="email" id="defaultForm-email" class="form-control validate" placeholder="Email" required="required">
+                    </div>
+                <!--Input de contraseña-->
+                    <div class="md-form mb-4">
+                        <input type="password" [(ngModel)]="password" name="password" id="defaultForm-pass" class="form-control validate" placeholder="Contraseña" required="required">
+                    </div>
+                </div>
+
+                <!--Boton para acceder-->
+                <div class="modal-footer d-flex justify-content-center">
+                    <input type="submit" value="Log In" class="btn btn-default w-100" (click)="login()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
