@@ -11,7 +11,7 @@ export class DiapositivaAcercaDeComponent implements OnInit {
   constructor() { }
 
   modificar(){
-    console.log([this.descripcion]);
+    console.log(this.descripcion);
   }
 
   ngOnInit(): void {

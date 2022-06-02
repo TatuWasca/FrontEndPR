@@ -12,10 +12,11 @@ export class DiapositivaHeaderComponent implements OnInit {
   descripcion!: string;
   localidad!: string;
 
+  
   constructor() { }
 
   modificar(){
-    console.log([[this.banner, this.perfil],[this.nombre, this.descripcion, this.localidad]]);
+    console.log(this.banner, this.perfil, this.nombre, this.descripcion, this.localidad);
   }
 
   ngOnInit(): void {

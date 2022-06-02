@@ -16,7 +16,7 @@ export class DiapositivasInformacionComponent implements OnInit {
   constructor() { }
 
   crear(){
-    console.log([[this.imagen],[this.descripcion, this.fecha, this.lugar]]);
+    console.log(this.imagen, this.nombre, this.descripcion, this.fecha, this.lugar);
   }
 
   ngOnInit(): void {

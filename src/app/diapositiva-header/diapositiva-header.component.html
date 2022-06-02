@@ -4,7 +4,7 @@
         <!--Input para el banner-->
         <div class="banner">
             <label for="banner">Subir Imagen</label>
-            <input type="file" [ngModel]="banner" name="banner" accept="image/*" style="opacity: 0%"/>
+            <input type="file" [(ngModel)]="banner" name="banner" accept="image/*" style="opacity: 0%"/>
         </div>
         <!--Input para el contenido-->
         <div class="borde-2">
@@ -12,16 +12,16 @@
                 <!--Input para la imagen de perfil-->
                 <div class="perfil">
                     <label for="perfil">Subir Imagen</label>
-                    <input type="file" [ngModel]="perfil" name="perfil" accept="image/*" style="opacity: 0%;"/>
+                    <input type="file" [(ngModel)]="perfil" name="perfil" accept="image/*" style="opacity: 0%;"/>
                 </div>
                 <!--Inputs para la información-->
                 <div>
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input class="form-control" [ngModel]="nombre" type="text" name="nombre"/>
+                    <input class="form-control" type="text" [(ngModel)]="nombre" name="nombre"/>
                     <label for="descripcion" class="form-label">Descripción</label>
-                    <input class="form-control" [ngModel]="descripcion" type="text" name="descripcion"/>
+                    <input class="form-control" type="text" [(ngModel)]="descripcion" name="descripcion"/>
                     <label for="localidad" class="form-label">Localidad</label>
-                    <input class="form-control" [ngModel]="localidad" type="text"  name="localidad"/>
+                    <input class="form-control" type="text" [(ngModel)]="localidad" name="localidad"/>
                 </div>
                 <!--Div que realiza el submit-->
                 <div style="padding-top: 20px">

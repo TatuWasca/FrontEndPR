@@ -9,10 +9,12 @@
         <!--Input para el contenido-->
         <div class="container-fluid">
             <div class="row">
+                <!--Input para imagen-->
                 <div class="col-sm-2 d-relative">
                     <label class="form-control imagen-formulario" for="imagen">Subir Imagen</label>
                     <input class="form-control imagen-formulario" type="file" [(ngModel)]="imagen" name="imagen" accept="image/*" style="opacity: 0%;">
                 </div>
+                <!--Inputs para información-->
                 <div class="col" style="padding-left: 35px">
                     <label for="descripcion" class="form-label">Descripción</label>
                     <input class="form-control" type="text" [(ngModel)]="descripcion" name="descripcion">
