@@ -8,7 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { DiapositivasInformacionComponent } from './diapositivas-informacion/diapositivas-informacion.component';
 import { DiapositivaHeaderComponent } from './diapositiva-header/diapositiva-header.component';
 import { DiapositivaAcercaDeComponent } from './diapositiva-acerca-de/diapositiva-acerca-de.component';
-import { Pagina404Component } from './pagina404/pagina404.component';
 import { AppRoutingModule } from './app-routing.module.ts.module';
 
 
@@ -26,7 +25,6 @@ import { AppRoutingModule } from './app-routing.module.ts.module';
     DiapositivasInformacionComponent, 
     DiapositivaHeaderComponent, 
     DiapositivaAcercaDeComponent,  
-    Pagina404Component
   ],
   bootstrap: [ AppComponent ],
 })
