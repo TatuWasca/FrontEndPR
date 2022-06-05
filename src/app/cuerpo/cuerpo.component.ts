@@ -7,8 +7,8 @@ import { AlternarService } from '../services/alternar.service';
   styleUrls: ['./cuerpo.component.css']
 })
 export class CuerpoComponent implements OnInit {
-  @Input()visible = true;
-
+  @Input() visible: boolean = true;
+  
   alternar() {
     this.servicioAlternar.disparadorAlternar.emit({
       data:this.visible,
