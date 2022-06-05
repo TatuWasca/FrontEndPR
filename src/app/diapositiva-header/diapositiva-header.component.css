@@ -1,6 +1,6 @@
 /*Tags para el contenedor general*/
-.borde{
-    margin: 10px 0px 10px 0px;
+#base{
+    position: relative;
     border-radius: 50px;
     height: 850px;
     background-color: wheat;
@@ -15,6 +15,7 @@
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     background-color: white;
+    z-index: 1;
 }
 
 .banner input, .banner label{
@@ -29,7 +30,7 @@
 }
 
 /*Tag para contener el perfil y sus imputs*/
-.borde-2{
+.borde{
     position: relative;
     height: 400px;
     border-left: 1px lightgray solid;
@@ -51,6 +52,7 @@
     display: flex;
     height: 150px;
     width: 150px;
+    z-index: 2;
 }
 
 .perfil input, .perfil label{

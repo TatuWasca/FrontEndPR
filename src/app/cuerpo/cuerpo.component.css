@@ -1,0 +1,96 @@
+
+  /*Tags para el contenido del banner, icono y demás*/
+  body{
+    position: relative;
+    padding: 55px 10px 65px 10px;
+  }
+  
+  .div-banner-y-icono{
+    width: 100%;
+    height: 625px;
+  }
+  
+  .banner{
+    border: 1px lightgray solid;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+  
+  .div-icono-y-informacion{
+    height: 175px;
+    border-left: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+    border-right: 1px lightgray solid;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+  
+  .div-contenedor{
+    position: relative;
+    left: 30px;
+    bottom: 75px;
+    height: 250px;
+  }
+  
+  .boton-editar{
+    position: relative;
+    top: 50px;
+    height: 15px;
+    width: 15px;
+    z-index: 3;
+  }
+  
+  .icono-de-perfil{
+    border: 1px lightgray solid;
+    border-radius: 50%;
+  }
+  
+  .div-informacion-de-perfil{
+    height: 40%;
+    line-height: 5px;
+  }
+  
+  .div-informacion-de-perfil p{
+    font-size: small;
+  }
+  
+  /*Tags para las diapositivas de información*/
+  .div-diapositivas-informacion{
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .div-informacion{
+    border: 1px lightgray solid;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    padding: 20px 0px 10px 30px;
+    line-height: 5px;;
+  }
+  
+  /*Tags para el pie de página*/
+  footer{
+    display: flex;
+    width: 100%;
+    height: 20px;
+    padding-right: 5px;
+    justify-content: right;
+    background-color: black;
+  }
+  
+  footer p{
+    color: white;
+    font-size: small;
+  }
+  
+  /*Media query de todos los tipos de pantalla*/
+  @media (max-width: 1400px){
+  }
+  @media (max-width: 1200px){
+  }
+  @media (max-width: 992px){
+  }
+  @media (max-width: 768px){
+  }
+  @media (max-width: 576px){
+  }

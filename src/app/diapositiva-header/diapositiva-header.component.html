@@ -1,13 +1,13 @@
 <!--Div para permitir la edición de la cabecera/banner-->
-<form method="POST" enctype="multipart/form-data">
-    <div class="borde">
+<div id="base" *ngIf="visible">
+    <form method="POST" enctype="multipart/form-data">
         <!--Input para el banner-->
         <div class="banner">
             <label for="banner">Subir Imagen</label>
-            <input type="file" [(ngModel)]="banner" name="banner" accept="image/*" style="opacity: 0%"/>
+            <input type="file" [(ngModel)]="banner" name="banner" accept="image/*" style="opacity: 0%;"/>
         </div>
         <!--Input para el contenido-->
-        <div class="borde-2">
+        <div class="borde">
             <div class="perfil-informacion">
                 <!--Input para la imagen de perfil-->
                 <div class="perfil">
@@ -15,7 +15,7 @@
                     <input type="file" [(ngModel)]="perfil" name="perfil" accept="image/*" style="opacity: 0%;"/>
                 </div>
                 <!--Inputs para la información-->
-                <div>
+                <div style="width:calc(100% - 30px)">
                     <label for="nombre" class="form-label">Nombre</label>
                     <input class="form-control" type="text" [(ngModel)]="nombre" name="nombre"/>
                     <label for="descripcion" class="form-label">Descripción</label>
@@ -29,8 +29,9 @@
                 </div>
             </div>
         </div>
-    </div> 
-</form>
+    </form>
+</div> 
+
 
 
 

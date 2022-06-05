@@ -8,9 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { DiapositivasInformacionComponent } from './diapositivas-informacion/diapositivas-informacion.component';
 import { DiapositivaHeaderComponent } from './diapositiva-header/diapositiva-header.component';
 import { DiapositivaAcercaDeComponent } from './diapositiva-acerca-de/diapositiva-acerca-de.component';
-import { AppRoutingModule } from './app-routing.module.ts.module';
-
-
+import { AppRoutingModule } from './app-routing.module';
+import { CuerpoComponent } from './cuerpo/cuerpo.component';
+import { NavegadorComponent } from './navegador/navegador.component';
 
 @NgModule({
   imports: [ 
@@ -24,7 +24,9 @@ import { AppRoutingModule } from './app-routing.module.ts.module';
     LoginComponent, 
     DiapositivasInformacionComponent, 
     DiapositivaHeaderComponent, 
-    DiapositivaAcercaDeComponent,  
+    DiapositivaAcercaDeComponent,
+    CuerpoComponent,  
+    NavegadorComponent,
   ],
   bootstrap: [ AppComponent ],
 })
