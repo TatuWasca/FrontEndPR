@@ -1,6 +1,8 @@
 import { Input, Component, OnInit } from '@angular/core';
 import { AlternarService } from '../services/alternar.service';
 
+declare const tester: any;
+
 @Component({
   selector: 'app-cuerpo',
   templateUrl: './cuerpo.component.html',
@@ -8,14 +10,13 @@ import { AlternarService } from '../services/alternar.service';
 })
 export class CuerpoComponent implements OnInit {
   @Input() visible: boolean = true;
-  
+
   alternar() {
     this.servicioAlternar.disparadorAlternar.emit({
       data:this.visible,
     });
-    this.visible = !this.visible;
-  }
-
+  };
+  
   constructor(private servicioAlternar: AlternarService) { }
 
   ngOnInit(): void {
@@ -23,5 +24,4 @@ export class CuerpoComponent implements OnInit {
       this.visible = data;
     });
   }
-
 }

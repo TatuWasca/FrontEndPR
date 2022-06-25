@@ -1,7 +1,7 @@
 <app-navegador></app-navegador>
-<body id="lol">
+<body>
   <!--banner, icono y otra informacion-->
-    <div *ngIf="visible" class="container-fluid div-banner-y-icono visible">
+    <div name="1" class="container-fluid div-banner-y-icono visible">
       <div class="row div-banner">
         <img class="banner" src="assets/images/banner.jpg" alt="banner" width="100%" height="450px">
       </div>
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="boton-editar">
-          <a (click)="alternar()"> <!--Función para hacer display:none al div-->
+          <a target="1" onclick="tester(this.target)">
             <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
           </a> 
         </div>
@@ -27,7 +27,7 @@
     <div class="div-informacion">
       <h2>Acerca de</h2>
       <p>Estudiante de nivel secundario del Instituto San Antonio</p>
-      <a (click)="alternar()">
+      <a>
         <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
       </a> 
     </div>
@@ -54,3 +54,4 @@
 <footer>
   <p>Todos los derechos reservados a Pablo Rubiolo, creador de este proyecto</p>
 </footer>
+

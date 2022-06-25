@@ -27,11 +27,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./styles.css" 
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "./assets/scripts.js"
             ]
           },
           "configurations": {
