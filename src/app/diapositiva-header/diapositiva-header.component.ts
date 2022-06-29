@@ -7,28 +7,35 @@ import { AlternarService } from '../services/alternar.service';
   styleUrls: ['./diapositiva-header.component.css']
 })
 export class DiapositivaHeaderComponent implements OnInit {
+  @Input() paquet!: any;
   banner!: string;
   perfil!: string;
   nombre!: string;
   descripcion!: string;
   localidad!: string;
-  @Input() visible = false;
+  visible: boolean = false;
+  
 
   constructor(private servicioAlternar: AlternarService) { 
   }
 
   modificar(){
-    console.log(this.banner, this.perfil, this.nombre, this.descripcion, this.localidad);
+    this.visible = false
+
     this.servicioAlternar.disparadorAlternar.emit({
-      data:this.visible,
+      data:this.paquet,
     });
-    this.visible = !this.visible;
   }
   
 
   ngOnInit(): void {
     this.servicioAlternar.disparadorAlternar.subscribe(data => {
-      this.visible = data;
+      //Checkea que sea el componente a modificar
+      if(data["data"][2] == "BannerBtn"){
+        this.paquet = data["data"];
+        this.visible = this.paquet[0]
+        this.paquet[0] = false
+      }
     });
   }
 }
