@@ -1,5 +1,5 @@
 <!--Div reusable para nuevas diapositivas-->
-<div class="borde">
+<div *ngIf="visible" class="borde">
     <form method="POST" enctype="multipart/form-data">
         <!--Input para el título de la diapositiva-->
         <div class="container-fluid mb-3">
@@ -27,7 +27,7 @@
         </div>
         <!--Div que realiza el submit-->
         <div class="container-fluid" style="padding-top: 20px">
-            <input class="btn btn-primary" type="submit" value="Guardar" (click)="crear()"/>
+            <input class="btn btn-primary" type="submit" value="Guardar" (click)="modificar()"/>
         </div>
     </form>
 </div>

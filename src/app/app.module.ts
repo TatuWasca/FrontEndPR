@@ -4,29 +4,39 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DiapositivasInformacionComponent } from './diapositivas-informacion/diapositivas-informacion.component';
-import { DiapositivaHeaderComponent } from './diapositiva-header/diapositiva-header.component';
-import { DiapositivaAcercaDeComponent } from './diapositiva-acerca-de/diapositiva-acerca-de.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CuerpoComponent } from './cuerpo/cuerpo.component';
-import { NavegadorComponent } from './navegador/navegador.component';
+
+import { CuerpoLoggedInComponent } from './vista-logged-in/cuerpo-logged-in.component';
+import { DiapositivasInformacionComponent } from './vista-logged-in/diapositivas-informacion/diapositivas-informacion.component';
+import { DiapositivaHeaderComponent } from './vista-logged-in/diapositiva-header/diapositiva-header.component';
+import { DiapositivaAcercaDeComponent } from './vista-logged-in/diapositiva-acerca-de/diapositiva-acerca-de.component';
+import { NavegadorLoggedInComponent } from './vista-logged-in/navegador-logged-in/navegador-logged-in.component';
+
+import { CuerpoLoggedOutComponent } from './vista-logged-out/cuerpo-logged-out.component';
+import { NavegadorLoggedOutComponent } from './vista-logged-out/navegador-logged-out/navegador-logged-out.component';
+import { LoginComponent } from './vista-logged-out/login/login.component';
+import { Pagina404Component } from './pagina404/pagina404.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [ 
     BrowserModule, 
     FormsModule, 
     HttpClientModule, 
-    AppRoutingModule
+    AppRoutingModule, 
+    NgbModule, 
   ],
   declarations: [
     AppComponent, 
+    CuerpoLoggedInComponent,
+    DiapositivasInformacionComponent,
+    CuerpoLoggedOutComponent,
     LoginComponent, 
-    DiapositivasInformacionComponent, 
     DiapositivaHeaderComponent, 
     DiapositivaAcercaDeComponent,
-    CuerpoComponent,  
-    NavegadorComponent,
+    NavegadorLoggedInComponent,
+    NavegadorLoggedOutComponent,
+    Pagina404Component,
   ],
   bootstrap: [ AppComponent ],
 })

@@ -2,3 +2,7 @@
     position: relative;
     top: 25%;
 }
+
+.modal-backdrop {
+    z-index: -1;
+}

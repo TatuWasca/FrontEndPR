@@ -1,5 +1,5 @@
-import {Input, Component, OnInit} from '@angular/core';
-import { AlternarService } from '../services/alternar.service';
+import { Input, Component, OnInit } from '@angular/core';
+import { AlternarService } from 'src/app/services/alternar-service/alternar.service';
 
 @Component({
   selector: 'app-diapositiva-header',
@@ -8,12 +8,14 @@ import { AlternarService } from '../services/alternar.service';
 })
 export class DiapositivaHeaderComponent implements OnInit {
   @Input() paquet!: any;
+  visible: boolean = false;
+
   banner!: string;
   perfil!: string;
   nombre!: string;
   descripcion!: string;
   localidad!: string;
-  visible: boolean = false;
+  
   
 
   constructor(private servicioAlternar: AlternarService) { 
@@ -31,11 +33,15 @@ export class DiapositivaHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.servicioAlternar.disparadorAlternar.subscribe(data => {
       //Checkea que sea el componente a modificar
-      if(data["data"][2] == "BannerBtn"){
-        this.paquet = data["data"];
-        this.visible = this.paquet[0]
+      if(data["data"][2] == "BannerBtn" && data["data"][0] == true){
+        data["data"][0] = false
+        this.paquet = data["data"]
+
+        this.visible = true
+
         this.paquet[0] = false
+        this.paquet[2] = "Body"
       }
-    });
+    })
   }
 }
