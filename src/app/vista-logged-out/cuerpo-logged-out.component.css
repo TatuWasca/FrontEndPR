@@ -78,41 +78,12 @@ body{
   display: block;
   padding-left: 10px;
 }
-
-/*Test*/
-.test{
-  display: flex;
-  height: 30px;
+ 
+.espaciador li{
+  margin-top: 10px;
+  list-style: none;
 }
 
-.test p{
-  display: flex;
-  align-items: center;
-  width: 250px;
-  height: 30px;
-}
-
-.test2{
-  display: flex;
-  align-items: center;
-  justify-items: left;
-  border: solid gray 1px;
-  border-radius: 15px;
-  padding: 0px;
-  width: 752px;
-  height: 22px;
-  margin: 5px 20px 0px 20px;
-  z-index: 2;
-}
-
-.test2 div{
-  background-color: cornflowerblue;
-  border-radius: 15px;
-  width: 750px;
-  height: 20px;
-  z-index: 1;
-}
-  
 /*Tags para el pie de página*/
 footer{
   display: flex;

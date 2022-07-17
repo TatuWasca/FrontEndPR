@@ -17,3 +17,9 @@ html::-webkit-scrollbar {
     user-select: none;
 }
 
+/*Tag global para que el modal no sea superpuesto por el fondo*/
+/*Utilicé un número exajerado para no tener que modificar otras elementos*/
+.modal {
+    z-index: 10000;
+}
+

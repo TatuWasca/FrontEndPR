@@ -23,9 +23,25 @@
       </a>
     </td>
     <td>
-      <a (click)="logout()">
+      <a (click)="open(contenido)">
         <img src="assets/images/icono-logout.jpg" alt="Login" height="100%" width="100%">
       </a>
     </td>
   </table>
 </nav>
+
+<ng-template #contenido let-modal>
+  <div class="modal-header text-center">
+    <h4>¿Estás seguro que quieres salir de tu cuenta?</h4>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
+      <input type="submit" value="Cancelar" class="btn w-100" (click)="modal.dismiss(contenido)">
+    </div>
+    <div class="d-flex justify-content-center w-25">
+    </div>
+    <div class="d-flex justify-content-center">
+      <input type="submit" value="Aceptar" class="btn btn-default w-100" (click)="modal.dismiss(contenido); logout()">
+    </div>
+  </div>
+</ng-template>  

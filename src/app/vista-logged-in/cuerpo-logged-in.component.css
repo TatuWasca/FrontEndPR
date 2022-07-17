@@ -25,7 +25,6 @@ body{
   border-right: 1px lightgray solid;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-
 }
   
 .div-contenedor{
@@ -81,15 +80,20 @@ body{
   padding-left: 10px;
 }
 
+.espaciador li{
+  margin-top: 10px;
+}
+
 /*Tags Para los botones de edición*/
 .alineador{
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .boton-editar{
   position: relative;
-  top: 10px;
+  display: flex;
   right: 10px;
   height: 15px;
   width: 15px;
@@ -99,48 +103,25 @@ body{
 .boton-editar a{
   position: relative;
   display: flex;
-}
-
-.boton-editar-diapositiva{
-  position: relative;
-  right: 20px;
   height: 15px;
   width: 15px;
+  margin-right: 10px;
+}
+
+.boton-editar-diapositiva important{
+  position: relative;
+  display: flex;
+  right: 10px;
+  height: 15px;
+  width: 40px;
   z-index: 3;
 }
 
-/*Test*/
-.test{
-  display: flex;
-  height: 30px;
-}
-
-.test p{
-  display: flex;
-  align-items: center;
-  width: 250px;
-  height: 30px;
-}
-
-.test2{
-  display: flex;
-  align-items: center;
-  justify-items: left;
-  border: solid gray 1px;
-  border-radius: 15px;
-  padding: 0px;
-  width: 752px;
-  height: 22px;
-  margin: 5px 20px 0px 20px;
-  z-index: 2;
-}
-
-.test2 div{
-  background-color: cornflowerblue;
-  border-radius: 15px;
-  width: 750px;
-  height: 20px;
-  z-index: 1;
+.boton-editar-diapositiva a{
+  position: relative;
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
 }
 
 /*Tags para el pie de página*/

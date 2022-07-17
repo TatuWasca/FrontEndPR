@@ -1,34 +1,56 @@
 <header>
-    <nav class="navegador">
+  <nav class="navegador">
   
-      <!--logo de argentina programa y nombre-->
-      <div>
-        <img src="assets/images/logo-argentina-programa.jpg" height="inherit" width="inherit">
-        <p>Argentina Programa #YoProgramo</p>
+    <!--logo de argentina programa y nombre-->
+    <div>
+      <img src="assets/images/logo-argentina-programa.jpg" height="inherit" width="inherit">
+      <p>Argentina Programa #YoProgramo</p>
+    </div>
+  
+    <!--contactos y login-->
+    <table>
+      <td>
+        <a href="https://es-la.facebook.com/people/Pablo-Rubiolo/100013166437499/" target="_blank">
+          <img src="assets/images/logo-facebook.jpg" alt="Facebook" height="100%" width="100%">
+        </a>
+      </td>
+      <td>
+        <a href="https://www.instagram.com/pablitorubiolo/" target="_blank">
+          <img src="assets/images/logo-instagram.jpg" alt="Instagram" height="100%" width="100%">
+        </a>
+      </td>
+      <td>
+        <a href="https://twitter.com/PabloRubiolo6" target="_blank">
+          <img src="assets/images/logo-twitter.jpg" alt="Twitter" height="100%" width="100%">
+        </a>
+      </td>
+      <td>
+        <a (click)="open(contenido)">
+          <img src="assets/images/icono-login.jpg" alt="Login" height="100%" width="100%">
+        </a>
+      </td>
+    </table>
+  </nav>
+</header>
+
+<ng-template #contenido let-modal>
+  <form>
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+    </div>
+    <!--Input de email-->
+    <div class="modal-body mx-3">
+      <div class="md-form mb-5">
+        <input type="email" name="email" class="form-control validate" placeholder="Email" required="required">
       </div>
-  
-      <!--contactos y login-->
-      <table>
-        <td>
-          <a href="https://es-la.facebook.com/people/Pablo-Rubiolo/100013166437499/" target="_blank">
-            <img src="assets/images/logo-facebook.jpg" alt="Facebook" height="100%" width="100%">
-          </a>
-        </td>
-        <td>
-          <a href="https://www.instagram.com/pablitorubiolo/" target="_blank">
-            <img src="assets/images/logo-instagram.jpg" alt="Instagram" height="100%" width="100%">
-          </a>
-        </td>
-        <td>
-          <a href="https://twitter.com/PabloRubiolo6" target="_blank">
-            <img src="assets/images/logo-twitter.jpg" alt="Twitter" height="100%" width="100%">
-          </a>
-        </td>
-        <td>
-          <a data-bs-toggle="modal" data-bs-target="#Login">
-            <img src="assets/images/icono-login.jpg" alt="Login" height="100%" width="100%">
-          </a>
-        </td>
-      </table>
-    </nav>
-  </header>
+      <!--Input de contraseña-->
+      <div class="md-form mb-4">
+          <input type="password" name="password" class="form-control validate" placeholder="Contraseña" required="required">
+      </div>
+    </div>
+    <!--Boton para acceder-->
+    <div class="modal-footer d-flex justify-content-center">
+      <input type="submit" value="Log In" class="btn btn-default w-100" (click)="modal.dismiss(contenido); login()">
+    </div>
+  </form>
+</ng-template>
