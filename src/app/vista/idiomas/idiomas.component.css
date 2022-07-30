@@ -1,0 +1,23 @@
+/*Tags para las diapositivas de información*/
+.idiomas{
+    border: 1px lightgray solid;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    padding: 20px 0px 10px 30px;
+    line-height: 5px;
+    background-color: whitesmoke;
+    border-radius: 50px;
+}
+.nombre-y-botones{
+    list-style: none;
+    padding-bottom: 5px;
+}
+.informacion{
+    display: flex;
+    align-items: center;
+}
+.informacion div{
+    display: block;
+    padding-left: 10px;
+    line-height: 15px;
+}

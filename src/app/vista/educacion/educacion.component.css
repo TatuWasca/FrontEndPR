@@ -1,0 +1,80 @@
+/*Tags para las diapositivas de información*/
+.educacion{
+    border: 1px lightgray solid;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    padding: 20px 0px 10px 30px;
+    line-height: 5px;
+    background-color: whitesmoke;
+    border-radius: 50px;
+}
+.nombre-y-botones{
+    list-style: none;
+    padding-bottom: 5px;
+}
+.informacion{
+    display: flex;
+    align-items: center;
+}
+.informacion div{
+    display: block;
+    padding-left: 10px;
+    line-height: 15px;
+}
+
+.formulario{
+    display: flex;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+}
+.form-imagen div{
+    width: 200px;
+    height: 240px;
+    margin-right: 20px;
+    padding: 0px;
+    background-color: rgba(238,238,238,1);
+}
+.form-imagen div input{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+.form-imagen label{
+    margin: 0px;
+}
+.form-descrip label{
+    margin: 0px;
+}
+.form-descrip input{
+    width: 100%;
+    background-color: rgba(238,238,238,1);
+    margin-bottom: 5px;
+    line-height: 0px;
+}
+/*Media Queries de todos los tipos de pantallas*/
+/*Media Query para mobiles*/
+@media (max-width: 480px) {
+    .informacion img{
+        width: 50px;
+        height: 50px;
+    }
+    .informacion div{
+        padding-left: 10px;
+        line-height: 0px;
+    }
+} 
+/*Media Query para tabletas y ipads*/
+@media (min-width: 481px) and (max-width: 767px) {
+}
+/* Media Query para tabletas u otros de mayor tamaño*/
+@media (min-width: 768px) and (max-width: 1024px){
+} 
+/* Media Query para laptops y monitores*/
+@media (min-width: 1025px) and (max-width: 1280px){
+}
+/* Media Query para grandes pantallas*/
+@media (min-width: 1281px) and (max-width: 1600px){
+}
+/* Media Query para pantallas XL*/
+@media (min-width: 1601px) {
+}

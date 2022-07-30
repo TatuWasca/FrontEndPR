@@ -1,0 +1,30 @@
+<div class="educacion">
+  <div class="alineador">
+    <h2>Experiencia</h2>
+    <a class="boton">
+      <img src="assets/images/icono-añadir.jpg" alt="icono-añadir" height="15px" width="15px">
+    </a>
+  </div>
+
+  <div *ngFor="let experiencia of experienciaArray" class="nombre-y-botones">
+    <div class="alineador">
+      <h5>{{experiencia.nombre}}</h5>
+      <div class="boton-diapositiva">
+        <a>
+          <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
+        </a>
+        <a>
+          <img src="assets/images/icono-borrar.jpg" alt="icono-borrar" height="15px" width="15px">
+        </a> 
+      </div>
+    </div>
+    <div class="informacion">
+      <img src="{{experiencia.img}}" alt="logo de educacion" width="100px" height="100px"> 
+      <div>
+        <p>{{experiencia.descripcion}}</p>
+        <p>{{experiencia.lugar}}</p>
+        <p>{{experiencia.fecha}}</p>
+      </div>
+    </div>
+  </div>
+</div>

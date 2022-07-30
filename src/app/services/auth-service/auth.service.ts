@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  uri = 'inicio/logged-in';
+  uri = 'inicio';
   token:any;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -14,11 +14,9 @@ export class AuthService {
   //Al no presentar una db, solamente cambia el componente y no comprobueba el email y contraseña
   login(email:string, password:string){
     this.uri += '/authenticate'
-    this.router.navigate(["logged-in"])
   };
 
   logout(){
-    this.router.navigate(["logged-out"])
   }
 
   public get logIn():boolean{

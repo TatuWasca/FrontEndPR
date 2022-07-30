@@ -1,0 +1,59 @@
+<app-navegador></app-navegador>
+
+<!--diapositivas con informacion-->
+<div class="div-diapositivas-informacion">
+    
+  <app-banner></app-banner>
+
+  <app-experiencia></app-experiencia>
+
+  <app-educacion></app-educacion>
+    
+  <app-hys-skills></app-hys-skills>
+
+  <app-idiomas></app-idiomas>
+
+  <app-proyectos></app-proyectos>
+
+</div> 
+
+<!--Modal utilizado para añadir o editar elementos-->
+<ng-template #content let-modal>
+  <form>
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Añadir</h4>
+      <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
+    </div>
+    <div class="modal-body text-center">
+      <input type="text" placeholder="Nombre" class="form-control">
+      <input type="text" placeholder="Descripcion" class="form-control">
+      <input type="text" placeholder="Lugar" class="form-control">
+      <input type="text" placeholder="Fecha" class="form-control">
+    </div>
+    <div class="modal-body text-center">
+      <input type="text" placeholder="Nombre" class="form-control">
+      <input type="text" placeholder="Valor" class="form-control">
+    </div>
+    <div class="modal-footer d-flex justify-content-center">
+      <input type="submit" value="Guardar" class="btn btn-default w-100" (click)="modal.dismiss(content); addOrModify()">
+      <input type="submit" value="Guardar" class="btn btn-default w-100" (click)="modal.dismiss(content); addOrModify()">
+    </div>
+  </form>
+</ng-template> 
+
+<!--Modal utilizado para borrar elementos-->
+<ng-template #contents let-modal>
+  <div class="modal-header text-center">
+    <h4>¿Estás seguro que quieres borrar este elemento?</h4>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
+      <input type="submit" value="Cancelar" class="btn w-100" (click)="modal.dismiss(contents)">
+    </div>
+    <div class="d-flex justify-content-center w-25">
+    </div>
+    <div class="d-flex justify-content-center">
+      <input id="d1" type="submit" value="Aceptar" class="btn btn-default w-100" (click)="modal.dismiss(contents); borrar()">
+    </div>
+  </div>
+</ng-template>  
