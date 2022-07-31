@@ -24,7 +24,7 @@
 /* Media Query para laptops y monitores*/
 @media (min-width: 1025px) and (max-width: 1280px){
   .div-diapositivas-informacion{
-    padding: 55px 300px 5px 300px;
+    padding: 55px 250px 5px 250px;
   }
 }
 /* Media Query para grandes pantallas*/

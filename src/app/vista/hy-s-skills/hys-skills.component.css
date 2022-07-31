@@ -13,11 +13,46 @@
     padding-bottom: 5px;
 }
 .informacion{
-    display: flex;
-    align-items: center;
-}
-.informacion div{
     display: block;
-    padding-left: 10px;
+    padding-right: 60px;
+    margin-bottom: 10px;
     line-height: 15px;
+}
+
+/*Media Queries de todos los tipos de pantallas*/
+/*Media Query para mobiles*/
+@media (max-width: 480px) {
+    ngb-progressbar{
+        font-size: 10px;
+    }
+} 
+/*Media Query para tabletas y ipads*/
+@media (min-width: 481px) and (max-width: 767px) {
+    ngb-progressbar{
+        font-size: 11px;
+    }
+}
+/* Media Query para tabletas u otros de mayor tamaño*/
+@media (min-width: 768px) and (max-width: 1024px){
+    ngb-progressbar{
+        font-size: 12px;
+    }
+} 
+/* Media Query para laptops y monitores*/
+@media (min-width: 1025px) and (max-width: 1280px){
+    ngb-progressbar{
+        font-size: 14px;
+    }
+}
+/* Media Query para grandes pantallas*/
+@media (min-width: 1281px) and (max-width: 1600px){
+    ngb-progressbar{
+        font-size: 15px;
+    }
+}
+/* Media Query para pantallas XL*/
+@media (min-width: 1601px) {
+    ngb-progressbar{
+        font-size: 16px;
+    }
 }

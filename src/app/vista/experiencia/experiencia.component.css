@@ -1,5 +1,5 @@
 /*Tags para las diapositivas de información*/
-.educacion{
+.experiencia{
     border: 1px lightgray solid;
     border-radius: 50px;
     margin-bottom: 10px;
@@ -17,7 +17,60 @@
     align-items: center;
 }
 .informacion div{
-    display: block;
+    display: grid;
+    justify-items: center;
     padding-left: 10px;
+    margin-right: 10px;
+}
+.informacion div p{
+    display:flex;
+    align-items: center;
     line-height: 15px;
+    margin: 1.5px;
+    width: 100%;
+    height: 100%;
+}
+
+/*Media Queries de todos los tipos de pantallas*/
+/*Media Query para mobiles*/
+@media (max-width: 480px) {
+    .informacion img{
+        width: 50px;
+        height: 50px;
+    }
+} 
+/*Media Query para tabletas y ipads*/
+@media (min-width: 481px) and (max-width: 767px) {
+    .informacion img{
+        width: 75px;
+        height: 75px;
+    }
+}
+/* Media Query para tabletas u otros de mayor tamaño*/
+@media (min-width: 768px) and (max-width: 1024px){
+    .informacion img{
+        width: 75px;
+        height: 75px;
+    }
+} 
+/* Media Query para laptops y monitores*/
+@media (min-width: 1025px) and (max-width: 1280px){
+    .informacion img{
+        width: 75px;
+        height: 75px;
+    }
+}
+/* Media Query para grandes pantallas*/
+@media (min-width: 1281px) and (max-width: 1600px){
+    .informacion img{
+        width: 100px;
+        height: 100px;
+    }
+}
+/* Media Query para pantallas XL*/
+@media (min-width: 1601px) {
+    .informacion img{
+        width: 125px;
+        height: 125px;
+    }
 }

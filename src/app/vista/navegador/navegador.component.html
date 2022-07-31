@@ -30,15 +30,9 @@
     <div class="modal-header text-center">
       <h4>¿Estás seguro que quieres salir de tu cuenta?</h4>
     </div>
-    <div class="modal-footer d-flex justify-content-center">
-      <div class="d-flex justify-content-center">
-        <input type="submit" value="Cancelar" class="btn w-100" (click)="modal.dismiss(contenido)">
-      </div>
-      <div class="d-flex justify-content-center w-25">
-      </div>
-      <div class="d-flex justify-content-center">
-        <input type="submit" value="Aceptar" class="btn btn-default w-100" (click)="modal.dismiss(contenido); logout()">
-      </div>
+    <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
+      <input type="submit" value="Cancelar" class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contenido)">
+      <input type="submit" value="Aceptar" class="btn btn-default" style="width:48%; padding: 15px" (click)="modal.dismiss(contenido); logout()">
     </div>
   </div>
   <div *ngIf="!logged">
@@ -47,18 +41,20 @@
         <h4 class="modal-title w-100 font-weight-bold">Login</h4>
       </div>
       <!--Input de email-->
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="email" name="email" class="form-control validate" placeholder="Email" required="required">
+      <div class="modal-body" style="background-color: rgba(238,238,238,1)">
+        <div class="md-form mb-4">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control validate" required="required">
         </div>
         <!--Input de contraseña-->
-        <div class="md-form mb-4">
-            <input type="password" name="password" class="form-control validate" placeholder="Contraseña" required="required">
+        <div class="md-form mb-3">
+          <label for="contraseña">Contraseña</label>
+          <input type="password" name="contraseña" class="form-control validate" required="required">
         </div>
       </div>
       <!--Boton para acceder-->
-      <div class="modal-footer d-flex justify-content-center">
-        <input type="submit" value="Log In" class="btn btn-default w-100" (click)="modal.dismiss(contenido); login()">
+      <div class="modal-footer d-flex justify-content-center" style="padding: 0px;" >
+        <input type="submit" value="Log In" class="btn btn-default w-100" style="padding: 20px;" (click)="modal.dismiss(contenido); login()">
       </div>
     </form>
   </div>

@@ -3,7 +3,12 @@
   <div class="banner-icono-y-informacion">
     <table class="icono-y-acerca-de">
       <td class="icono-y-informacion">
-        <img class="icono" src="{{banner.imgperfil}}" alt="icono de perfil" width="50px" height="50px">
+        <div class="alineador-banner">
+          <img class="icono" src="{{banner.imgperfil}}" alt="icono de perfil" width="50px" height="50px">
+          <a class="boton"(click)="open(content); ModOrBor(banner)">
+            <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
+          </a>
+        </div>
         <h5>{{banner.nombre}}</h5>
         <p>{{banner.descripcion}}</p>
         <p>{{banner.lugar}}</p>
@@ -14,3 +19,39 @@
     </table>
   </div>
 </div>
+
+<!--Modal utilizado para editar elementos-->
+<ng-template #content let-modal>
+  <form>
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
+    </div>
+
+    <mat-tab-group mat-align-tabs="center" class="modal-body">
+      <mat-tab label="Descripción" color="red" ng-reflect-disable-pagination="true">
+        <label for="nombre" style="line-height: 0px;">Nombre</label>
+        <input class="form-control" style="margin-bottom: 5px;" name="nombre" [(ngModel)]="selectedElement.nombre" [ngModelOptions]="{standalone: true}" type="text">
+        <label for="descripcion" style="line-height: 0px;">Descripcion</label>
+        <input class="form-control" style="margin-bottom: 5px;" name="descripcion" [(ngModel)]="selectedElement.descripcion" [ngModelOptions]="{standalone: true}" type="text">
+        <label for="lugar" style="line-height: 0px;">Lugar</label>
+        <input class="form-control" style="margin-bottom: 5px;" name="lugar" [(ngModel)]="selectedElement.lugar" [ngModelOptions]="{standalone: true}" type="text">
+      </mat-tab>
+      <mat-tab label="Banner" ng-reflect-disable-pagination="true">
+        <label for="Banner" style="line-height: 0px;">Banner</label>
+        <div class="form-control" style="height: 250px; padding: 0px">
+          <input name="Banner"  style="height: 100%; width: 100%; opacity: 0;" [(ngModel)]="selectedElement.imgbanner" [ngModelOptions]="{standalone: true}" type="file">
+        </div>
+      </mat-tab>
+      <mat-tab label="Icono de Perfil" ng-reflect-disable-pagination="true"> 
+        <label for="Icono" style="line-height: 0px;">Icono</label>
+        <div class="form-control" style="height: 250px; padding: 0px">
+          <input name="Icono"  style="height: 100%; width: 100%; opacity: 0;" [(ngModel)]="selectedElement.imgperfil" [ngModelOptions]="{standalone: true}" type="file">
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div class="modal-footer d-flex justify-content-center">
+      <input type="submit" value="Guardar" class="btn btn-default w-100" (click)="modal.dismiss(content); addOrModify()">
+    </div>
+  </form>
+</ng-template> 

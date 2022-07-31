@@ -1,9 +1,23 @@
+p{
+    position: relative;
+    bottom: 10px;
+}
 div{
     display: grid;
     justify-items: center;
     text-align: justify;
 }
-
+.alineador-acerca-de{
+    display: flex;
+    align-items: center;
+}
+.alineador-acerca-de a{
+    padding-left: 10px;
+    bottom: 4px;
+}
+.area-de-texto{
+    height: 200px;
+}
 /*Media Queries de todos los tipos de pantallas*/
 /*Media Query para mobiles*/
 @media (max-width: 480px) {

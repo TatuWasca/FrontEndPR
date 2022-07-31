@@ -7,22 +7,6 @@ html::-webkit-scrollbar {
     width: 0; 
     background: transparent; 
 }
-
-/*Evita que sea posible seleccionar items*/
-.inseleccionable{
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
-/*Tag global para que el modal no sea superpuesto por el fondo*/
-/*Utilicé un número exajerado para no tener que modificar otras elementos*/
-.modal {
-    z-index: 10000;
-}
-
 /*Letra general*/
 body{
     z-index: -1;
@@ -31,29 +15,71 @@ body{
     background: rgb(190,160,94);
     background: linear-gradient(133deg, rgba(190,160,94,1) 38%, rgba(236,255,190,1) 100%);
 }
-
+/*Evita que sea posible seleccionar items*/
+.inseleccionable{
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+/*Tag global para que el modal no sea superpuesto por el fondo*/
+/*Utilicé un número exajerado para no tener que modificar otras elementos*/
+.modal{
+    z-index: 10000;
+}
+/*Modifica los tabs del modulo MatTabs, se encuentra en los modal de edición*/
+.mat-tab-group{ 
+    padding: 0px;
+}
+.mat-tab-labels{
+    width: 100%;
+}
+/*Modifica todos los tabs existentes, poseen id unicas cada uno*/
+div#mat-tab-label-0-0, div#mat-tab-label-0-1, div#mat-tab-label-0-2, div#mat-tab-label-1-0, div#mat-tab-label-1-1, div#mat-tab-label-1-2, div#mat-tab-label-2-0, div#mat-tab-label-2-1, div#mat-tab-label-2-2, div#mat-tab-label-3-0, div#mat-tab-label-3-1, div#mat-tab-label-3-2 {
+    width: 100%;
+}
+.mat-ripple-element{
+    width: 100% !important;
+}
+.mat-tab-label{ 
+    margin: 0px;
+    background-color: rgba(238,238,238,1);
+}
+.mat-tab-body{ 
+    padding: 25px;
+    background-color: rgba(238,238,238,1);
+}
+button.mat-ripple{
+    display: none;
+}
 /*Tags Para los botones de edición en general*/
 .alineador{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 15px;
 }
 .boton{
     position: relative;
     display: flex;
-    right: 10px;
+    bottom: 5px;
     height: 15px;
     width: 15px;
-    z-index: 3;
+    z-index: 3;  
 }
 .boton-diapositiva{
+    position: relative;
     display: flex;
+    margin: 0px;
+    bottom: 5px;
 }
 .boton-diapositiva a{
     height: 15px;
     width: 15px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
+
 
 /*Media Queries de todos los tipos de pantallas, para modificar el tamaño de la letra*/
 /*Media Query para mobiles*/
@@ -69,6 +95,10 @@ body{
     p{
         font-size: 8px;
     }
+    .boton img, .boton-diapositiva img, .boton, .boton-diapositiva a{
+        width: 10px;
+        height: 10px;
+    }
 } 
 /*Media Query para tabletas y ipads*/
 @media (min-width: 481px) and (max-width: 767px) {
@@ -82,6 +112,10 @@ body{
     }
     p{
         font-size: 11px;
+    }
+    .boton img, .boton-diapositiva img, .boton a, .boton-diapositiva a{
+        width: 12.5px;
+        height: 12.5px;
     }
 }
 /* Media Query para tabletas u otros de mayor tamaño*/
@@ -97,11 +131,15 @@ body{
     p{
         font-size: 11px;
     }
+    .boton img, .boton-diapositiva img, .boton a, .boton-diapositiva a{
+        width: 12.5px;
+        height: 12.5px;
+    }
 } 
 /* Media Query para laptops y monitores*/
 @media (min-width: 1025px) and (max-width: 1280px){
     h2{
-        font-size: 20px;
+        font-size: 23px;
         font-weight: bold;
     }
     h5{
@@ -111,33 +149,44 @@ body{
     p{
         font-size: 13px;
     }
+    .boton img, .boton-diapositiva img, .boton a, .boton-diapositiva a{
+        width: 15px;
+        height: 15px;
+    }
 }
 /* Media Query para grandes pantallas*/
 @media (min-width: 1281px) and (max-width: 1600px){
     h2{
-        font-size: 21px;
+        font-size: 26px;
         font-weight: bold;
     }
     h5{
-        font-size: 16px;
-        font-weight: bold;
-    }
-    p{
-        font-size: 13px;
-    }
-}
-
-/* Media Query para pantallas XL*/
-@media (min-width: 1601px) {
-    h2{
-        font-size: 22px;
-        font-weight: bold;
-    }
-    h5{
-        font-size: 17px;
+        font-size: 19px;
         font-weight: bold;
     }
     p{
         font-size: 14px;
+    }
+    .boton img, .boton-diapositiva img, .boton a, .boton-diapositiva a{
+        width: 15px;
+        height: 15px;
+    }
+}
+/* Media Query para pantallas XL*/
+@media (min-width: 1601px) {
+    h2{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    h5{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    p{
+        font-size: 15px;
+    }
+    .boton img, .boton-diapositiva img, .boton a, .boton-diapositiva a{
+        width: 17.5px;
+        height: 17.5px;
     }
 }

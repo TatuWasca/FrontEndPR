@@ -39,7 +39,13 @@
 .acerca-de{
     position: relative;
 }
-
+.alineador-banner{
+    display: flex;
+    align-items: flex-end;
+}
+.alineador-banner a{
+    bottom: 0px !important;
+}
 /*Media Queries de todos los tipos de pantallas*/
 /*Media Query para mobiles*/
 @media (max-width: 480px) {
@@ -60,7 +66,6 @@
         top: 30px;
         left: 15px;
         width: 50%;
-        line-height: 20px;
         margin-left: 30%;
     }
 } 
@@ -87,7 +92,6 @@
         top: 55px;
         left: 30px;
         width: 50%;
-        line-height: 20px;
         margin-left: 30%;
     }
 }
@@ -114,7 +118,6 @@
         top: 55px;
         left: 30px;
         width: 50%;
-        line-height: 20px;
         margin-left: 30%;
     }
 } 
@@ -141,7 +144,6 @@
         top: 55px;
         left: 25px;
         width: 50%;
-        line-height: 20px;
         margin-left: 30%;
     }
 }
@@ -166,9 +168,9 @@
     }
     .acerca-de{ 
         top: 65px;
-        left: 10px;
+        left: 25px;
         width: 50%;
-        line-height: 20px;
+        margin: 0px;
         margin-left: 30%;
     }
 }
@@ -196,7 +198,6 @@
         top: 65px;
         left: 10px;
         width: 50%;
-        line-height: 20px;
         margin-left: 30%;
     }
 }

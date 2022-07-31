@@ -25,17 +25,13 @@ export class EducacionComponent implements OnInit {
   addOrModify(){
     if(this.selectedElement.id === 0){
       this.selectedElement.id = this.educacionArray.length + 1;
-      this.educacionArray.push(this.selectedElement)
+      this.educacionArray.push(this.selectedElement)   
     }
     this.selectedElement = new educacion();
   }
   borrar(){
     this.educacionArray = this.educacionArray.filter(x => x != this.selectedElement);
     this.selectedElement = new educacion();
-  }
-
-  openTab() {
-    
   }
 
   constructor(public modalService:NgbModal) { }
