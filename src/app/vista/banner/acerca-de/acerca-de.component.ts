@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { acercaDe } from 'src/app/models/test';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-acerca-de',
@@ -13,22 +14,43 @@ export class AcercaDeComponent implements OnInit {
   ];
   selectedElement: acercaDe = new acercaDe();
 
+  /*Funciones para la apertura, modificacion, adicion y eliminacion de elementos*/
+  /*Abre el modal*/
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, animation: false}) 
+    this.modalService.open(contenido, {centered:true, animation: false, backdrop : 'static'}) 
   }
+  /*Guarda el objeto actual*/
   ModOrBor(acercaDe:acercaDe){
     this.selectedElement = acercaDe;
   }
-  addOrModify(){
-    if(this.selectedElement.id === 0){
-      this.selectedElement.id = this.acercaDeArray.length + 1;
-      this.acercaDeArray.push(this.selectedElement)   
+  /*Modifica o agrega un objeto*/ 
+  addOrModify(content: any){
+    /*Comprueba que sea validos sus inputs*/
+    if(this.formElement.valid){
+      this.modalService.dismissAll(content);
+      this.selectedElement = new acercaDe();
+      this.formElement.reset();
     }
-    this.selectedElement = new acercaDe();
   }
-  borrar(){
-    this.acercaDeArray = this.acercaDeArray.filter(x => x != this.selectedElement);
+  /*Resetea el formualrio*/
+  Reset(content:any){
+    this.modalService.dismissAll(content);
     this.selectedElement = new acercaDe();
+    this.formElement.reset();
+  }
+
+  /*Funciones para los formularios*/
+  formElement = new FormGroup({
+    descripcion: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+  });
+
+  get Descripcion(){
+    return this.formElement.get("descripcion");
+  }
+
+  /*Comprueba que sea validos sus inputs al hacer submit*/
+  onEnviar(){
+    this.formElement.markAllAsTouched(); 
   }
 
   constructor(public modalService:NgbModal) { }

@@ -22,36 +22,80 @@
 
 <!--Modal utilizado para editar elementos-->
 <ng-template #content let-modal>
-  <form>
+  <form [formGroup]="formElement" (ngSubmit)="onEnviar()">
     <div class="modal-header text-center">
       <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
     </div>
 
+    <!--Permite tener Tabs-->
     <mat-tab-group mat-align-tabs="center" class="modal-body">
-      <mat-tab label="Descripción" color="red" ng-reflect-disable-pagination="true">
+      <mat-tab label="Descripción" color="red">
+        <!--Inputs con sus clases que detectan si el form es valido--> 
         <label for="nombre" style="line-height: 0px;">Nombre</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="nombre" [(ngModel)]="selectedElement.nombre" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control" 
+        style="margin-bottom: 5px;" 
+        name="nombre" 
+        [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
+        [class.is-valid]="Nombre!.touched && Nombre!.valid"
+        [(ngModel)]="selectedElement.nombre" 
+        formControlName="nombre" 
+        type="text">
+
         <label for="descripcion" style="line-height: 0px;">Descripcion</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="descripcion" [(ngModel)]="selectedElement.descripcion" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control" 
+        style="margin-bottom: 5px;" 
+        name="descripcion"
+        [class.is-invalid]="Descripcion!.touched && Descripcion!.invalid"
+        [class.is-valid]="Descripcion!.touched && Descripcion!.valid"
+        [(ngModel)]="selectedElement.descripcion" 
+        formControlName="descripcion" 
+        type="text">
+
         <label for="lugar" style="line-height: 0px;">Lugar</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="lugar" [(ngModel)]="selectedElement.lugar" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control"
+        style="margin-bottom: 5px;"
+        name="lugar" [(ngModel)]="selectedElement.lugar"
+        [class.is-invalid]="Lugar!.touched && Lugar!.invalid"
+        [class.is-valid]="Lugar!.touched && Lugar!.valid"
+        [(ngModel)]="selectedElement.lugar" 
+        formControlName="lugar" 
+        type="text">
+
       </mat-tab>
-      <mat-tab label="Banner" ng-reflect-disable-pagination="true">
-        <label for="Banner" style="line-height: 0px;">Banner</label>
-        <div class="form-control" style="height: 250px; padding: 0px">
-          <input name="Banner"  style="height: 100%; width: 100%; opacity: 0;" [(ngModel)]="selectedElement.imgbanner" [ngModelOptions]="{standalone: true}" type="file">
-        </div>
+      <mat-tab label="Banner">
+        <label for="Banner" style="line-height: 0px;">Imagen</label>
+        <input 
+        name="Banner"
+        class="form-control"
+        style="padding: 0px; height: fit-content;"
+        [class.is-invalid]="ImgBanner!.touched && ImgBanner!.invalid"
+        [class.is-valid]="ImgBanner!.touched && ImgBanner!.valid"
+        [(ngModel)]="selectedElement.imgbanner"
+        formControlName="imgbanner"
+        type="file">
       </mat-tab>
-      <mat-tab label="Icono de Perfil" ng-reflect-disable-pagination="true"> 
-        <label for="Icono" style="line-height: 0px;">Icono</label>
-        <div class="form-control" style="height: 250px; padding: 0px">
-          <input name="Icono"  style="height: 100%; width: 100%; opacity: 0;" [(ngModel)]="selectedElement.imgperfil" [ngModelOptions]="{standalone: true}" type="file">
-        </div>
+
+      <mat-tab label="Icono de perfil">
+        <label for="Icono de perfil" style="line-height: 0px;">Imagen</label>
+        <input 
+        name="Icono de perfil"
+        class="form-control"
+        style="padding: 0px; height: fit-content;"
+        [class.is-invalid]="ImgPerfil!.touched && ImgPerfil!.invalid"
+        [class.is-valid]="ImgPerfil!.touched && ImgPerfil!.valid"
+        [(ngModel)]="selectedElement.imgperfil"
+        formControlName="imgperfil"
+        type="file">
       </mat-tab>
     </mat-tab-group>
 
-    <div class="modal-footer d-flex justify-content-center">
-      <input type="submit" value="Guardar" class="btn btn-default w-100" (click)="modal.dismiss(content); addOrModify()">
+    <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
+      <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="Reset(content)">Cancelar</button>
+      <input class="btn btn-default" style="width:48%; padding: 15px"(click)="addOrModify(content)" type="submit" value="Guardar" >
     </div>
+
   </form>
 </ng-template> 

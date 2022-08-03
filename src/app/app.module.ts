@@ -1,6 +1,6 @@
 import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -15,14 +15,15 @@ import { NavegadorComponent } from './vista/navegador/navegador.component';
 import { BannerComponent } from './vista/banner/banner.component';
 import { AcercaDeComponent } from './vista/banner/acerca-de/acerca-de.component';
 import { EducacionComponent } from './vista/educacion/educacion.component';
-import { HySSkillsComponent } from './vista/hy-s-skills/hys-skills.component';
+import { HySSkillsComponent } from './vista/hys-skills/hys-skills.component';
 import { ExperienciaComponent } from './vista/experiencia/experiencia.component';
 import { ProyectosComponent } from './vista/proyectos/proyectos.component';
 
 @NgModule({
   imports: [ 
     BrowserModule, 
-    FormsModule, 
+    FormsModule,
+    ReactiveFormsModule, 
     HttpClientModule, 
     AppRoutingModule, 
     NgbModule, 

@@ -5,7 +5,7 @@
     <p>Argentina Programa #YoProgramo</p>
   </div>
   
-  <!--contactos y login-->
+  <!--contactos-->
   <div class="iconos-de-navegador">
     <a class="icono" href="https://es-la.facebook.com/people/Pablo-Rubiolo/100013166437499/" target="_blank">
       <img  src="assets/images/logo-facebook.jpg" alt="Facebook" height="30px" width="30px">
@@ -16,45 +16,59 @@
     <a class="icono" href="https://twitter.com/PabloRubiolo6" target="_blank">
       <img  src="assets/images/logo-twitter.jpg" alt="Twitter" height="30px" width="30px">
     </a>
-    <a class="icono-log" *ngIf="logged" (click)="open(contenido)">
+   <!--Login y logout-->
+    <a class="icono-log" *ngIf="isLogged" (click)="open(contenido)">
       <img src="assets/images/icono-logout.jpg" alt="Logout" height="30px" width="45px">
     </a>
-    <a class="icono-log" *ngIf="!logged"(click)="open(contenido)">
-      <img  src="assets/images/icono-login.jpg" alt="Login" height="30px" width="45px">
+    <a class="icono-log" *ngIf="!isLogged"(click)="open(contenido)">
+      <img src="assets/images/icono-login.jpg" alt="Login" height="30px" width="45px">
     </a>
   </div>
 </nav>
 
 <ng-template #contenido let-modal>
-  <div *ngIf="logged">
+  <!--Cierra sesion si está activa-->
+  <div *ngIf="isLogged">
     <div class="modal-header text-center">
       <h4>¿Estás seguro que quieres salir de tu cuenta?</h4>
     </div>
     <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
       <input type="submit" value="Cancelar" class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contenido)">
-      <input type="submit" value="Aceptar" class="btn btn-default" style="width:48%; padding: 15px" (click)="modal.dismiss(contenido); logout()">
+      <input type="submit" value="Aceptar" class="btn btn-default" style="width:48%; padding: 15px" (click)="logout(contenido)">
     </div>
   </div>
-  <div *ngIf="!logged">
-    <form>
+   <!--Abre sesion si no está activa-->
+  <div *ngIf="!isLogged">
+    <form [formGroup]="formElement">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Login</h4>
       </div>
       <!--Input de email-->
       <div class="modal-body" style="background-color: rgba(238,238,238,1)">
         <div class="md-form mb-4">
-          <label for="email">Email</label>
-          <input type="email" name="email" class="form-control validate" required="required">
+          <label for="usuario">Usuario</label>
+          <input 
+          type="text" 
+          name="usuario" 
+          class="form-control" 
+          [class.is-invalid]="Usuario!.touched && Usuario!.invalid"
+          [class.is-valid]="Usuario!.touched && Usuario!.valid"
+          formControlName="usuario">
         </div>
         <!--Input de contraseña-->
         <div class="md-form mb-3">
           <label for="contraseña">Contraseña</label>
-          <input type="password" name="contraseña" class="form-control validate" required="required">
+          <input type="password" 
+          name="contraseña" 
+          class="form-control"
+          [class.is-invalid]="Contrasena!.touched && Contrasena!.invalid"
+          [class.is-valid]="Contrasena!.touched && Contrasena!.valid"
+          formControlName="contraseña">
         </div>
       </div>
       <!--Boton para acceder-->
       <div class="modal-footer d-flex justify-content-center" style="padding: 0px;" >
-        <input type="submit" value="Log In" class="btn btn-default w-100" style="padding: 20px;" (click)="modal.dismiss(contenido); login()">
+        <input type="submit" value="Log In" class="btn btn-default w-100" style="padding: 20px;" (click)="login(contenido)">
       </div>
     </form>
   </div>

@@ -26,24 +26,44 @@
 
 <!--Modal utilizado para añadir o editar elementos-->
 <ng-template #content let-modal>
-  <form>
+  <form [formGroup]="formElement" (ngSubmit)="onEnviar()">
+
     <div class="modal-header text-center">
       <h4 *ngIf="this.selectedElement.id === 0" class="modal-title w-100 font-weight-bold">Añadir</h4>
       <h4 *ngIf="this.selectedElement.id !== 0" class="modal-title w-100 font-weight-bold">Modificar</h4>
     </div>
 
+    <!--Inputs con sus clases que detectan si el form es valido--> 
     <div class="modal-body" style="background-color: rgba(238,238,238,1);">
-      <label for="nombre"  style="line-height: 0px;">Nombre</label>
-      <input class="form-control" style="margin-bottom: 5px;" name="nombre" [(ngModel)]="selectedElement.nombre" [ngModelOptions]="{standalone: true}" type="text">
+
+      <label for="nombre" style="line-height: 0px;">Nombre</label>
+      <input 
+      class="form-control" 
+      style="margin-bottom: 5px;" 
+      name="nombre" 
+      [(ngModel)]="selectedElement.nombre" 
+      [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
+      [class.is-valid]="Nombre!.touched && Nombre!.valid"
+      formControlName="nombre" 
+      type="text">
+
       <div style="display:grid; margin-top: 10px;">
         <label for="valor">Valor - {{selectedElement.valor}}%</label>
-        <input name="valor" min="0" max="100" value="100" [(ngModel)]="selectedElement.valor" [ngModelOptions]="{standalone: true}" type="range">
+        <input 
+        name="valor" 
+        min="0" max="100" value="100" 
+        [(ngModel)]="selectedElement.valor"
+        formControlName="valor"  
+        type="range">
       </div>
+
     </div>
 
-    <div class="modal-footer d-flex justify-content-center">
-      <input type="submit" value="Guardar" class="btn btn-default w-100" (click)="modal.dismiss(content); addOrModify()">
+    <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
+      <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="Reset(content)">Cancelar</button>
+      <input class="btn btn-default" style="width:48%; padding: 15px"(click)="addOrModify(content)" type="submit" value="Guardar" >
     </div>
+
   </form>
 </ng-template> 
 
@@ -53,7 +73,7 @@
     <h4>¿Estás seguro que quieres borrar este elemento?</h4>
   </div>
   <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
-    <input type="submit" value="Cancelar" class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contents)">
-    <input type="submit" value="Aceptar" class="btn btn-default" style="width:48%; padding: 15px" (click)="modal.dismiss(contents); borrar()">
+    <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contents)">Cancelar</button>
+    <button class="btn btn-default" style="width:48%; padding: 15px" (click)="borrar(contents)">Aceptar</button>
   </div>
-</ng-template>  
+</ng-template>    

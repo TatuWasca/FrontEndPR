@@ -29,36 +29,82 @@
   </div>
 </div>
 
+
 <!--Modal utilizado para añadir o editar elementos-->
 <ng-template #content let-modal>
-  <form>
+  <form [formGroup]="formElement" (ngSubmit)="onEnviar()">
     <div class="modal-header text-center">
       <h4 *ngIf="this.selectedElement.id === 0" class="modal-title w-100 font-weight-bold">Añadir</h4>
       <h4 *ngIf="this.selectedElement.id !== 0" class="modal-title w-100 font-weight-bold">Modificar</h4>
     </div>
 
+    <!--Permite tener Tabs-->
     <mat-tab-group mat-align-tabs="center" class="modal-body">
       <mat-tab label="Descripción" color="red">
+        <!--Inputs con sus clases que detectan si el form es valido--> 
         <label for="nombre" style="line-height: 0px;">Nombre</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="nombre" [(ngModel)]="selectedElement.nombre" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control" 
+        style="margin-bottom: 5px;" 
+        name="nombre" 
+        [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
+        [class.is-valid]="Nombre!.touched && Nombre!.valid"
+        [(ngModel)]="selectedElement.nombre" 
+        formControlName="nombre" 
+        type="text">
+
         <label for="descripcion" style="line-height: 0px;">Descripcion</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="descripcion" [(ngModel)]="selectedElement.descripcion" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control" 
+        style="margin-bottom: 5px;" 
+        name="descripcion"
+        [class.is-invalid]="Descripcion!.touched && Descripcion!.invalid"
+        [class.is-valid]="Descripcion!.touched && Descripcion!.valid"
+        [(ngModel)]="selectedElement.descripcion" 
+        formControlName="descripcion" 
+        type="text">
+
         <label for="lugar" style="line-height: 0px;">Lugar</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="lugar" [(ngModel)]="selectedElement.lugar" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control"
+        style="margin-bottom: 5px;"
+        name="lugar" [(ngModel)]="selectedElement.lugar"
+        [class.is-invalid]="Lugar!.touched && Lugar!.invalid"
+        [class.is-valid]="Lugar!.touched && Lugar!.valid"
+        [(ngModel)]="selectedElement.lugar" 
+        formControlName="lugar" 
+        type="text">
+
         <label for="fecha" style="line-height: 0px;">Fecha</label>
-        <input class="form-control" style="margin-bottom: 5px;" name="fecha" [(ngModel)]="selectedElement.fecha" [ngModelOptions]="{standalone: true}" type="text">
+        <input 
+        class="form-control"
+        style="margin-bottom: 5px;"
+        name="fecha"
+        [class.is-invalid]="Fecha!.touched && Fecha!.invalid"
+        [class.is-valid]="Fecha!.touched && Fecha!.valid"
+        [(ngModel)]="selectedElement.fecha"
+        formControlName="fecha"
+        type="text">
       </mat-tab>
       <mat-tab label="Imagen">
         <label for="imagen" style="line-height: 0px;">Imagen</label>
-        <div class="form-control" style="height: 250px; padding: 0px">
-          <input name="imagen"  style="height: 100%; width: 100%; opacity: 0;" [(ngModel)]="selectedElement.img" [ngModelOptions]="{standalone: true}" type="file">
-        </div>
+        <input 
+        name="imagen"
+        class="form-control"
+        style="padding: 0px; height: fit-content;"
+        [class.is-invalid]="Img!.touched && Img!.invalid"
+        [class.is-valid]="Img!.touched && Img!.valid"
+        [(ngModel)]="selectedElement.img"
+        formControlName="img"
+        type="file">
       </mat-tab>
     </mat-tab-group>
 
-    <div class="modal-footer d-flex justify-content-center">
-      <input type="submit" value="Guardar" class="btn btn-default w-100" (click)="modal.dismiss(content); addOrModify()">
+    <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
+      <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="Reset(content)">Cancelar</button>
+      <input class="btn btn-default" style="width:48%; padding: 15px"(click)="addOrModify(content)" type="submit" value="Guardar" >
     </div>
+
   </form>
 </ng-template> 
 
@@ -68,7 +114,7 @@
     <h4>¿Estás seguro que quieres borrar este elemento?</h4>
   </div>
   <div class="modal-footer d-flex justify-content-center" style="padding: 0px">
-    <input type="submit" value="Cancelar" class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contents)">
-    <input type="submit" value="Aceptar" class="btn btn-default" style="width:48%; padding: 15px" (click)="modal.dismiss(contents); borrar()">
+    <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contents)">Cancelar</button>
+    <button class="btn btn-default" style="width:48%; padding: 15px" (click)="borrar(contents)">Aceptar</button>
   </div>
 </ng-template>  

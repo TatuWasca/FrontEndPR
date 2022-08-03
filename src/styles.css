@@ -28,22 +28,16 @@ body{
 .modal{
     z-index: 10000;
 }
-/*Modifica los tabs del modulo MatTabs, se encuentra en los modal de edición*/
+/*Modifica todos los tabs existentes, poseen id unicas cada uno*/
 .mat-tab-group{ 
     padding: 0px;
-}
-.mat-tab-labels{
-    width: 100%;
-}
-/*Modifica todos los tabs existentes, poseen id unicas cada uno*/
-div#mat-tab-label-0-0, div#mat-tab-label-0-1, div#mat-tab-label-0-2, div#mat-tab-label-1-0, div#mat-tab-label-1-1, div#mat-tab-label-1-2, div#mat-tab-label-2-0, div#mat-tab-label-2-1, div#mat-tab-label-2-2, div#mat-tab-label-3-0, div#mat-tab-label-3-1, div#mat-tab-label-3-2 {
-    width: 100%;
 }
 .mat-ripple-element{
     width: 100% !important;
 }
 .mat-tab-label{ 
     margin: 0px;
+    width: 100%;
     background-color: rgba(238,238,238,1);
 }
 .mat-tab-body{ 
