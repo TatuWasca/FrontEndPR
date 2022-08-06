@@ -59,9 +59,9 @@ export class EducacionComponent implements OnInit {
   formElement = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     img: new FormControl(''),
-    descripcion: new FormControl('', [Validators.required, Validators.maxLength(200)]),
-    lugar: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-    fecha: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+    descripcion: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+    lugar: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    fecha: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
 
   get Nombre(){

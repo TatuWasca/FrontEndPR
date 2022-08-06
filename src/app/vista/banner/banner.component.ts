@@ -45,7 +45,7 @@ export class BannerComponent implements OnInit {
     imgbanner: new FormControl(''),
     imgperfil: new FormControl(''),
     descripcion: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    lugar: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+    lugar: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
 
   get Nombre(){

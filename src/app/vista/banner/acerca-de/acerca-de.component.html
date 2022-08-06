@@ -13,8 +13,7 @@
   <form [formGroup]="formElement" (ngSubmit)="onEnviar()">
 
     <div class="modal-header text-center">
-      <h4 *ngIf="this.selectedElement.id === 0" class="modal-title w-100 font-weight-bold">Añadir</h4>
-      <h4 *ngIf="this.selectedElement.id !== 0" class="modal-title w-100 font-weight-bold">Modificar</h4>
+      <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
     </div>
 
     <!--Inputs con sus clases que detectan si el form es valido--> 
