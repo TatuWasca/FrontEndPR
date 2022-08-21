@@ -11,7 +11,6 @@ html::-webkit-scrollbar {
 body{
     z-index: -1;
     font-family: Arial, Helvetica, sans-serif;  
-    width:fit-content;
     background: rgb(190,160,94);
     background: linear-gradient(133deg, rgba(190,160,94,1) 38%, rgba(236,255,190,1) 100%);
 }
@@ -28,8 +27,9 @@ body{
 .modal{
     z-index: 10000;
 }
+
 /*Modifica todos los tabs existentes, poseen id unicas cada uno*/
-.mat-tab-group{ 
+/*.mat-tab-group{ 
     padding: 0px;
 }
 .mat-ripple-element{
@@ -46,7 +46,7 @@ body{
 }
 button.mat-ripple{
     display: none;
-}
+}*/
 /*Tags Para los botones de edición en general*/
 .alineador{
     display: flex;

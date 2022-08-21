@@ -1,0 +1,206 @@
+/*Tags para el contenido del banner, icono y demás*/
+.banner{
+    background-color: whitesmoke;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    border: 1px lightgray solid;
+    z-index: 3;
+}
+    
+.img-banner{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom: 1px lightgray solid;
+}
+    
+.banner-icono-y-informacion{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.icono-y-acerca-de{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.icono-y-informacion{
+    position: absolute;
+    line-height: 0px !important;
+}
+    
+.icono{
+    border: 1px lightgray solid;
+    border-radius: 50%;
+}
+
+.acerca-de{
+    position: relative;
+    width: 50%;
+}
+.alineador-banner{
+    display: flex;
+    align-items: flex-end;
+}
+.alineador-banner a{
+    bottom: 0px !important;
+}
+/*Media Queries de todos los tipos de pantallas*/
+/*Media Query para mobiles*/
+@media (max-width: 480px) {
+    .banner{
+        height: 250px;
+    }      
+    .img-banner{
+        height: 150px;
+    }
+    .banner-icono-y-informacion{
+        height: 100px;
+    }
+    .icono-y-acerca-de{
+        bottom: 25px;
+        left: 20px;
+    }
+    .acerca-de{ 
+        top: 30px;
+        left: 15px;
+        width: 50%;
+        margin-left: 30%;
+    }
+} 
+/*Media Query para tabletas y ipads*/
+@media (min-width: 481px) and (max-width: 767px) {
+    .banner{
+        height: 350px;
+    }      
+    .img-banner{
+        height: 200px;
+    }
+    .banner-icono-y-informacion{
+        height: 150px;
+    }
+    .icono-y-acerca-de{
+        bottom: 40px;
+        left: 25px;
+    }
+    .icono{
+        width: 75px;
+        height: 75px;
+    }
+    .acerca-de{ 
+        top: 55px;
+        left: 30px;
+        width: 50%;
+        margin-left: 30%;
+    }
+}
+/* Media Query para tabletas u otros de mayor tamaño*/
+@media (min-width: 768px) and (max-width: 1024px){
+    .banner{
+        height: 350px;
+    }      
+    .img-banner{
+        height: 200px;
+    }
+    .banner-icono-y-informacion{
+        height: 150px;
+    }
+    .icono-y-acerca-de{
+        bottom: 40px;
+        left: 25px;
+    }
+    .icono{
+        width: 75px;
+        height: 75px;
+    }
+    .acerca-de{ 
+        top: 55px;
+        left: 30px;
+        width: 50%;
+        margin-left: 30%;
+    }
+} 
+/* Media Query para laptops y monitores*/
+@media (min-width: 1025px) and (max-width: 1280px){
+    .banner{
+        height: 350px;
+    }      
+    .img-banner{
+        height: 200px;
+    }
+    .banner-icono-y-informacion{
+        height: 150px;
+    }
+    .icono-y-acerca-de{
+        bottom: 40px;
+        left: 35px;
+    }
+    .icono{
+        width: 75px;
+        height: 75px;
+    }
+    .acerca-de{ 
+        top: 55px;
+        left: 25px;
+        width: 50%;
+        margin-left: 30%;
+    }
+}
+/* Media Query para grandes pantallas*/
+@media (min-width: 1281px) and (max-width: 1600px){
+    .banner{
+        height: 450px;
+    }      
+    .img-banner{
+        height: 300px;
+    }
+    .banner-icono-y-informacion{
+        height: 150px;
+    }
+    .icono-y-acerca-de{
+        bottom: 50px;
+        left: 45px;
+    }
+    .icono{
+        width: 100px;
+        height: 100px;
+    }
+    .acerca-de{ 
+        top: 65px;
+        left: 25px;
+        width: 50%;
+        margin: 0px;
+        margin-left: 30%;
+    }
+}
+
+/* Media Query para pantallas XL*/
+@media (min-width: 1601px) {
+    .banner{
+        height: 450px;
+    }      
+    .img-banner{
+        height: 300px;
+    }
+    .banner-icono-y-informacion{
+        height: 150px;
+    }
+    .icono-y-acerca-de{
+        bottom: 50px;
+        left: 45px;
+    }
+    .icono{
+        width: 100px;
+        height: 100px;
+    }
+    .acerca-de{ 
+        top: 65px;
+        left: 10px;
+        width: 50%;
+        margin-left: 30%;
+    }
+}
