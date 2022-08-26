@@ -33,13 +33,13 @@
       <h4>¿Estás seguro que quieres salir de tu cuenta?</h4>
     </div>
     <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid" >
-      <input type="submit" value="Cancelar" class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contenido)">
-      <input type="submit" value="Aceptar" class="btn btn-default" style="width:50%; padding: 15px" (click)="logout(contenido)">
+      <input type="submit" value="Cancelar" class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">
+      <input type="submit" value="Aceptar" class="btn btn-default" style="width:50%; padding: 15px" (click)="logout()">
     </div>
   </div>
    <!--Abre sesion si no está activa-->
   <div *ngIf="!isLogged">
-    <form [formGroup]="formElement">
+    <form [formGroup]="formElement" (ngSubmit)="onLogin()">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Login</h4>
       </div>
@@ -51,9 +51,10 @@
           type="text" 
           name="usuario" 
           class="form-control" 
-          [class.is-invalid]="Usuario!.touched && Usuario!.invalid"
-          [class.is-valid]="Usuario!.touched && Usuario!.valid"
-          formControlName="usuario">
+          [class.is-invalid]="NombreUsuario!.touched && NombreUsuario!.invalid"
+          [class.is-valid]="NombreUsuario!.touched && NombreUsuario!.valid"
+          [(ngModel)]="nombreUsuario"
+          formControlName="nombreUsuario">
         </div>
         <!--Input de contraseña-->
         <div class="md-form mb-3">
@@ -61,15 +62,16 @@
           <input type="password" 
           name="contraseña" 
           class="form-control"
-          [class.is-invalid]="Contrasena!.touched && Contrasena!.invalid"
-          [class.is-valid]="Contrasena!.touched && Contrasena!.valid"
-          formControlName="contraseña">
+          [class.is-invalid]="Password!.touched && Password!.invalid"
+          [class.is-valid]="Password!.touched && Password!.valid"
+          [(ngModel)]="password"
+          formControlName="password">
         </div>
       </div>
       <!--Boton para acceder-->
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid" >
-        <input type="submit" value="Cancelar" class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="modal.dismiss(contenido)">
-        <input type="submit" value="Log In" class="btn btn-default" style="width:50%; padding: 20px;" (click)="login(contenido)">
+        <input type="submit" value="Cancelar" class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">
+        <input type="submit" value="Acceder" class="btn btn-default" style="width:50%; padding: 20px;" (click)="login()">
       </div>
     </form>
   </div>

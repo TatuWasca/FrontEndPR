@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Acercade } from 'src/app/models/object-models';
+import { Acercade } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AcercadeService } from 'src/app/services/acercade-service/acercade.service';
+import { TokenService } from 'src/app/services/token-service/token.service';
 
 @Component({
   selector: 'app-acercade',
@@ -11,6 +12,7 @@ import { AcercadeService } from 'src/app/services/acercade-service/acercade.serv
   styleUrls: ['./acercade.component.css']
 })
 export class AcercaDeComponent implements OnInit {
+  isLogged: boolean = false;
   AcercadeArray: Acercade[]
 
   //Abre el modal
@@ -39,13 +41,13 @@ export class AcercaDeComponent implements OnInit {
   //FunciÓn CRUD
   editar(id:number, AcDe:Acercade){
     this.AcercadeService.editarAcDe(id,AcDe).subscribe();
+    this.cerrar();
   }
 
   //Comprueba que sea validos sus inputs al hacer submit
   onEditar(id:number,AcDe:Acercade){
     if(this.formElement.valid){
       this.editar(id,AcDe); 
-      this.cerrar();
     }else{
       this.formElement.markAllAsTouched(); 
     }
@@ -59,9 +61,14 @@ export class AcercaDeComponent implements OnInit {
     return this.formElement.get("descripcion");
   }
 
-  constructor(public modalService:NgbModal, private AcercadeService:AcercadeService) { }
+  constructor(public modalService:NgbModal, private tokenService: TokenService, private AcercadeService:AcercadeService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
     this.obtenerAcercaDe();
   };
 }

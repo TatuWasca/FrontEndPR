@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Experiencias } from 'src/app/models/object-models';
+import { Experiencias } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ExperienciaService } from 'src/app/services/experiencias-service/experiencias.service';
+import { TokenService } from 'src/app/services/token-service/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -11,6 +12,7 @@ import { ExperienciaService } from 'src/app/services/experiencias-service/experi
   styleUrls: ['./experiencias.component.css']
 })
 export class ExperienciasComponent implements OnInit {
+  isLogged: boolean = false;
   experienciasArray: Experiencias[] 
 
   NewExp: Experiencias = new Experiencias();
@@ -43,19 +45,16 @@ export class ExperienciasComponent implements OnInit {
   onCrear(){
     if(this.formElement.valid){
       this.crear();
-      this.cerrar(); 
     }else{
       this.formElement.markAllAsTouched(); 
     } 
   }
   onBorrar(id: number){
     this.borrar(id);
-    this.cerrar(); 
   }
   onEditar(id:number,exp:Experiencias){
     if(this.formElement.valid){
       this.editar(id,exp);
-      this.cerrar(); 
     }else{
       this.formElement.markAllAsTouched(); 
     }
@@ -64,12 +63,15 @@ export class ExperienciasComponent implements OnInit {
   //Funciones CRUD
   crear(){
     this.experienciaService.añadirExp(this.NewExp).subscribe();
+    this.cerrar();
   }
   borrar(id: number){
     this.experienciaService.eliminarExp(id).subscribe();
+    this.cerrar();
   }
   editar(id:number, exp:Experiencias){
     this.experienciaService.editarExp(id, exp).subscribe();
+    this.cerrar();
   }
 
   //Funciones para los formularios
@@ -92,9 +94,14 @@ export class ExperienciasComponent implements OnInit {
     return this.formElement.get("fecha");
   }
   
-  constructor(public modalService:NgbModal, private experienciaService:ExperienciaService) { }
+  constructor(public modalService:NgbModal, private tokenService: TokenService, private experienciaService:ExperienciaService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
     this.obtenerExp();
   }
 }

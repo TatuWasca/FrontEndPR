@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Usuario } from 'src/app/model/usuario';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { TokenService } from 'src/app/services/token-service/token.service';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
 
 @Component({
   selector: 'app-navegador',
@@ -12,42 +14,78 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NavegadorComponent implements OnInit {
   isLogged: boolean = false;
+  isLoginFailed: boolean = false;
+  Usuario: Usuario;
+  nombreUsuario: string;
+  password: string;
+  roles: string[];
+  errMsj: string[] = [];
 
   //Abre el modal
   open(contenido:any) {
     this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
   }
-  
-  //Cierra la sesión del usuario
-  logout(contenido:any){
-    this.modalService.dismissAll(contenido)
-    this.isLogged = false
+
+  //Cierra el modal, quita los cambios, resetea el formulario y sus validators
+  cerrar(){
+    this.modalService.dismissAll();
+    this.formElement.reset();
+
+    //Borrar los validators de valid y invalid, luego de cancelar el form
+    Object.keys(this.formElement.controls).forEach(key => {
+      this.formElement.get(key)!.setErrors(null) ;
+    });
   }
 
-  //Abre la sesión del usuario
-  login(contenido:any){
+  //Chequea si los inputs son validos
+  onLogin(): void{
     if(this.formElement.valid){
-      this.modalService.dismissAll(contenido)
-      this.formElement.reset()
-
-      this.isLogged = true
+      this.login();
+    }else{
+      this.formElement.markAllAsTouched(); 
     }
+  }
+  //Abre la sesión del usuario
+  login(){
+    this.Usuario = new Usuario(this.nombreUsuario, this.password);this.authService
+    .login(this.Usuario).subscribe(data =>{
+      this.isLogged = true;
+      this.isLoginFailed = false;
+      this.tokenService.setToken(data.token);
+      this.tokenService.setUsername(data.nombreUsuario);
+      this.cerrar();
+      window.location.reload();
+    }, err =>{
+      this.isLogged = false;
+      this.isLoginFailed = true;
+      this.errMsj = err.error.mensaje;
+    });
+  }
+  //Cierra la sesión del usuario
+  logout(): void{
+    this.tokenService.logOut();
+    this.cerrar();
+    window.location.reload();
   }
 
   //Funciones para los formularios
   formElement = new FormGroup({
-    usuario: new FormControl('', [Validators.required]),
-    contraseña: new FormControl('', [Validators.required]),
+    nombreUsuario: new FormControl('', [Validators.required,Validators.maxLength(25)]),
+    password: new FormControl('', [Validators.required,Validators.maxLength(25)]),
   });
-  get Contrasena(){
-    return this.formElement.get("contraseña");
+  get NombreUsuario(){
+    return this.formElement.get("nombreUsuario");
   }
-  get Usuario(){
-   return this.formElement.get("usuario");
+  get Password(){
+   return this.formElement.get("password");
   }
 
-  constructor(private authService: AuthService, private modalService: NgbModal ) { }
+  constructor(private modalService: NgbModal, private tokenService: TokenService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLoginFailed = false;
+    }
   }
 }

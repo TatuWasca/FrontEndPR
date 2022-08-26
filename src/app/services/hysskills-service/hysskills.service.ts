@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HySSkills } from 'src/app/models/object-models';
+import { Hysskills } from 'src/app/model/component-models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HysSkillsService {
-  private baseUrl = "http://localhost:8080/api/HySSkills"
+  private baseUrl = "http://localhost:8080/Hysskills"
 
   constructor(private httpCliente: HttpClient) { }
 
-  obtenerListaSkills() : Observable<HySSkills[]>{
-    return this.httpCliente.get<HySSkills[]>(`${this.baseUrl}/traer`);
+  obtenerListaSkills() : Observable<Hysskills[]>{
+    return this.httpCliente.get<Hysskills[]>(`${this.baseUrl}/traer`);
   }
 
-  añadirSkill(skill:HySSkills) : Observable<Object>{
+  añadirSkill(skill:Hysskills) : Observable<Object>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, skill);
   }
 
-  editarSkill(id:number, skill:HySSkills) : Observable<Object>{
+  editarSkill(id:number, skill:Hysskills) : Observable<Object>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, skill);
   }
 

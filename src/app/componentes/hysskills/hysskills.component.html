@@ -1,17 +1,17 @@
 <div class="HyS_Skills">
   <div class="alineador">
     <h2>Soft and Hard Skills</h2>
-    <a (click)="open(contenido)" class="boton">
+    <a (click)="open(contenido)" class="boton" *ngIf="isLogged">
       <img src="assets/images/icono-añadir.jpg" alt="icono-añadir" height="15px" width="15px">
     </a> 
   </div>
 
-  <div *ngFor="let skill of HyS_SkillsArray" class="nombre-y-botones">
+  <div *ngFor="let skill of HysskillsArray" class="nombre-y-botones">
 
     <!--Parte visible-->
     <div class="alineador">
       <h5>{{skill.nombre}}</h5>
-      <div class="boton-diapositiva">
+      <div class="boton-diapositiva" *ngIf="isLogged">
         <a>
           <img (click)="open(contents)" src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
         </a>
@@ -31,13 +31,13 @@
       </div>
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
         <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-        <button type="submit" class="btn btn-default" style="width:48%; padding: 15px" (click)="borrar(skill.id_HySSkill)">Aceptar</button>
+        <button type="submit" class="btn btn-default" style="width:48%; padding: 15px" (click)="borrar(skill.id_Hysskills)">Aceptar</button>
       </div>
     </ng-template>
 
     <!--Modal utilizado para editar elementos-->
     <ng-template #contents let-modal>
-      <form [formGroup]="formElement" (ngSubmit)="onEditar(skill.id_HySSkill, skill)">
+      <form [formGroup]="formElement" (ngSubmit)="onEditar(skill.id_Hysskills, skill)">
 
         <div class="modal-header text-center">
           <h4 class="modal-title w-100 font-weight-bold">Editar</h4>
@@ -52,9 +52,9 @@
           style="margin-bottom: 5px;" 
           name="nombre"
           [(ngModel)]="skill.nombre"
-          [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
-          [class.is-valid]="Nombre!.touched && Nombre!.valid"
-          formControlName="nombre" 
+          [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+          [class.is-valid]="NombreF!.touched && NombreF!.valid"
+          formControlName="nombreF" 
           type="text">
 
           <div style="display:grid; margin-top: 10px;">
@@ -62,7 +62,7 @@
             <input 
             name="valor" 
             min="0" max="100" value="100" 
-            formControlName="valor"
+            formControlName="valorF"
             [(ngModel)]="skill.valor"  
             type="range">
           </div>
@@ -96,9 +96,9 @@
       style="margin-bottom: 5px;" 
       name="nombre"
       [(ngModel)]="NewSkill.nombre"
-      [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
-      [class.is-valid]="Nombre!.touched && Nombre!.valid"
-      formControlName="nombre" 
+      [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+      [class.is-valid]="NombreF!.touched && NombreF!.valid"
+      formControlName="nombreF" 
       type="text">
 
       <div style="display:grid; margin-top: 10px;">
@@ -106,7 +106,7 @@
         <input 
         name="valor" 
         min="0" max="100" value="100" 
-        formControlName="valor"
+        formControlName="valorF"
         [(ngModel)]="NewSkill.valor"  
         type="range">
       </div>

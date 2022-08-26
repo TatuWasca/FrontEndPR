@@ -1,26 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { JwtDto } from 'src/app/model/jwt-dto';
+import { Usuario } from 'src/app/model/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  uri = 'inicio';
-  token:any;
+  authURL = "http://localhost:8080/auth/"
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient) { }
 
-  //Al no presentar una db, solamente cambia el componente y no comprobueba el email y contraseña
-  login(email:string, password:string){
-    this.uri += '/authenticate'
-  };
-
-  logout(){
+  public login(usuario: Usuario): Observable<JwtDto>{
+    return this.httpClient.post<JwtDto>(this.authURL + "login", usuario);
   }
-
-  public get logIn():boolean{
-    return (localStorage.getItem("token") !== null);
-  }
-
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Proyectos } from 'src/app/models/object-models';
+import { Proyectos } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProyectosService } from 'src/app/services/proyectos-service/proyectos.service';
+import { TokenService } from 'src/app/services/token-service/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -11,6 +12,7 @@ import { ProyectosService } from 'src/app/services/proyectos-service/proyectos.s
   styleUrls: ['./Proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
+  isLogged: boolean = false;
   proyectosArray: Proyectos[] 
 
   NewProy: Proyectos = new Proyectos();
@@ -43,19 +45,16 @@ export class ProyectosComponent implements OnInit {
   onCrear(){
     if(this.formElement.valid){
       this.crear();
-      this.cerrar();
     }else{
       this.formElement.markAllAsTouched(); 
     }
   }
   onBorrar(id: number){
     this.borrar(id);
-    this.cerrar();
   }
   onEditar(id:number,proy:Proyectos){
     if(this.formElement.valid){
       this.editar(id,proy);
-      this.cerrar(); 
     }else{
       this.formElement.markAllAsTouched(); 
     }
@@ -64,12 +63,15 @@ export class ProyectosComponent implements OnInit {
   //Funciones CRUD
   crear(){
     this.ProyectosService.añadirProy(this.NewProy).subscribe();
+    this.cerrar();
   }
   borrar(id: number){
     this.ProyectosService.eliminarProy(id).subscribe();
+    this.cerrar();
   }
   editar(id:number, proy:Proyectos){
     this.ProyectosService.editarProy(id, proy).subscribe();
+    this.cerrar();
   }
 
   //Funciones para los formularios
@@ -92,9 +94,14 @@ export class ProyectosComponent implements OnInit {
     return this.formElement.get("fecha");
   }
 
-  constructor(public modalService:NgbModal, private ProyectosService:ProyectosService) { }
+  constructor(public modalService:NgbModal, private tokenService: TokenService, private ProyectosService:ProyectosService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
     this.obtenerProy();
   }
 }

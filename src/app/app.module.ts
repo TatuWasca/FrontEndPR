@@ -2,7 +2,7 @@ import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxFileDropModule  } from 'ngx-file-drop';
+import { InterceptorService } from './services/interceptor-service/interceptor.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +28,6 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     AppRoutingModule, 
     NgbModule, 
     NoopAnimationsModule, 
-    NgxFileDropModule, 
     MatTabsModule,
   ],
   declarations: [
@@ -42,6 +41,11 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     ExperienciasComponent,
     ProyectosComponent,
   ],
-  bootstrap: [ AppComponent ],
+  providers:[
+    InterceptorService
+  ],
+  bootstrap: [ 
+    AppComponent 
+  ],
 })
 export class AppModule{ }

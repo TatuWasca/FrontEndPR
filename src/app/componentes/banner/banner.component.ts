@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Banner } from 'src/app/models/object-models';
+import { Banner } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BannerService } from 'src/app/services/banner-service/banner.service';
+import { TokenService } from 'src/app/services/token-service/token.service';
 
 @Component({
   selector: 'app-banner',
@@ -11,6 +12,7 @@ import { BannerService } from 'src/app/services/banner-service/banner.service';
   styleUrls: ['./banner.component.css']
 })
 export class BannerComponent implements OnInit {
+  isLogged: boolean = false;
   bannerArray: Banner[] 
 
   //Abre el modal
@@ -39,13 +41,13 @@ export class BannerComponent implements OnInit {
   //Función CRUD
   editar(id:number, ban:Banner){
     this.BannerService.editarBan(id, ban).subscribe();
+    this.cerrar();
   }
 
   //Comprueba que sea validos sus inputs al hacer submit
   onEditar(id:number,ban:Banner){
     if(this.formElement.valid){
       this.editar(id,ban); 
-      this.cerrar();
     }else{
       this.formElement.markAllAsTouched(); 
     }
@@ -67,9 +69,14 @@ export class BannerComponent implements OnInit {
    return this.formElement.get("localidad");
   }
   
-  constructor(public modalService:NgbModal, private BannerService:BannerService) { }
+  constructor(public modalService:NgbModal,private tokenService: TokenService, private BannerService:BannerService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
     this.obtenerBanner();
   }
 }

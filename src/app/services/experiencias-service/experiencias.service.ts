@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Experiencias } from 'src/app/models/object-models';
+import { Experiencias } from 'src/app/model/component-models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienciaService {
-  private baseUrl = "http://localhost:8080/api/Experiencias"
+  private baseUrl = "http://localhost:8080/Experiencias"
 
   constructor(private httpCliente: HttpClient) { }
 

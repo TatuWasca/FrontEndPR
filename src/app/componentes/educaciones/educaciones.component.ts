@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Educaciones } from 'src/app/models/object-models';
+import { Educaciones } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EducacionService } from 'src/app/services/educacion-service/educacion.service';
+import { TokenService } from 'src/app/services/token-service/token.service';
 
 @Component({
   selector: 'app-educaciones',
@@ -11,25 +12,21 @@ import { EducacionService } from 'src/app/services/educacion-service/educacion.s
   styleUrls: ['./educaciones.component.css']
 })
 export class EducacionesComponent implements OnInit {
+  isLogged: boolean = false;
   educacionesArray: Educaciones[] 
 
   NewEdu: Educaciones = new Educaciones();
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, animation: false, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
     this.obtenerEdu();
-    this.modalService.dismissAll();
     this.formElement.reset();
-
-    //Borrar los validators de valid y invalid, luego de cancelar el form
-    Object.keys(this.formElement.controls).forEach(key => {
-      this.formElement.get(key)!.setErrors(null) ;
-    });
+    this.modalService.dismissAll();
   }
 
   //Permite obtener las educaciones
@@ -59,37 +56,45 @@ export class EducacionesComponent implements OnInit {
   //Funciones CRUD
   crear(){
     this.educacionService.añadirEdu(this.NewEdu).subscribe();
+    this.cerrar();
   }
   borrar(id: number){
     this.educacionService.eliminarEdu(id).subscribe();
+    this.cerrar();
   }
   editar(id:number, edu:Educaciones){
     this.educacionService.editarEdu(id, edu).subscribe();
+    this.cerrar();
   }
 
   //Funciones para los formularios
   formElement = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    descripcion: new FormControl('', [Validators.required, Validators.maxLength(200)]),
-    lugar: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    fecha: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    nombreF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    descripcionF: new FormControl('', [Validators.required, Validators.maxLength(200)]),
+    lugarF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    fechaF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
-  get Nombre(){
-    return this.formElement.get("nombre");
+  get NombreF(){
+    return this.formElement.get("nombreF");
   }
-  get Descripcion(){
-    return this.formElement.get("descripcion");
+  get DescripcionF(){
+    return this.formElement.get("descripcionF");
   }
-  get Lugar(){
-   return this.formElement.get("lugar");
+  get LugarF(){
+   return this.formElement.get("lugarF");
   }
-  get Fecha(){
-    return this.formElement.get("fecha");
+  get FechaF(){
+    return this.formElement.get("fechaF");
   }
 
-  constructor(public modalService:NgbModal, private educacionService:EducacionService) { }
+  constructor(public modalService:NgbModal,private tokenService: TokenService, private educacionService:EducacionService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
     this.obtenerEdu();
   }
 }

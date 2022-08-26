@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Acercade } from 'src/app/models/object-models';
+import { Acercade } from 'src/app/model/component-models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AcercadeService {
-  private baseUrl = "http://localhost:8080/api/Acercade"
+  private baseUrl = "http://localhost:8080/Acercade"
 
   constructor(private httpCliente: HttpClient) { }
 

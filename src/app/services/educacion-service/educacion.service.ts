@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Educaciones } from 'src/app/models/object-models';
+import { Educaciones } from 'src/app/model/component-models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EducacionService {
-  private baseUrl = "http://localhost:8080/api/Educaciones"
+  private baseUrl = "http://localhost:8080/Educaciones"
 
   constructor(private httpCliente: HttpClient) { }
 

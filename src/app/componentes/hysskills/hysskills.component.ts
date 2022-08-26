@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HySSkills } from 'src/app/models/object-models';
+import { Component,  OnInit } from '@angular/core';
+import { Hysskills } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HysSkillsService } from 'src/app/services/hysskills-service/hysskills.service';
+import { TokenService } from 'src/app/services/token-service/token.service';
 
 @Component({
   selector: 'app-hysskills',
@@ -11,9 +12,10 @@ import { HysSkillsService } from 'src/app/services/hysskills-service/hysskills.s
   styleUrls: ['./hysskills.component.css']
 })
 export class HySSkillsComponent implements OnInit {
-  HyS_SkillsArray: HySSkills[]
+  isLogged:boolean = false;
+  HysskillsArray: Hysskills[]
 
-  NewSkill : HySSkills = new HySSkills();
+  NewSkill : Hysskills = new Hysskills();
 
   //Abre el modal
   open(contenido:any) {
@@ -23,19 +25,15 @@ export class HySSkillsComponent implements OnInit {
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
     this.obtenerSkills();
-    this.modalService.dismissAll();
     this.formElement.reset();
-
-    //Borrar los validators de valid y invalid, luego de cancelar el form
-    Object.keys(this.formElement.controls).forEach(key => {
-      this.formElement.get(key)!.setErrors(null) ;
-    });
+    this.modalService.dismissAll();
   }
+
  
   //Permite obtener las skills
   private obtenerSkills(){
     this.HysSkillsService.obtenerListaSkills().subscribe(data =>{
-      this.HyS_SkillsArray = data;
+      this.HysskillsArray = data;
     })
   } 
 
@@ -43,19 +41,16 @@ export class HySSkillsComponent implements OnInit {
   onCrear(){
     if(this.formElement.valid){
       this.crear();
-      this.cerrar();
     }else{
       this.formElement.markAllAsTouched(); 
     } 
   }
   onBorrar(id: number){
     this.borrar(id);
-    this.cerrar();
   }
-  onEditar(id:number,skill:HySSkills){
+  onEditar(id:number,skill:Hysskills){
     if(this.formElement.valid){
       this.editar(id,skill); 
-      this.cerrar();
     }else{
       this.formElement.markAllAsTouched(); 
     }
@@ -64,30 +59,37 @@ export class HySSkillsComponent implements OnInit {
   //Funciones CRUD
   crear(){
     this.HysSkillsService.añadirSkill(this.NewSkill).subscribe();
+    this.cerrar();
   }
   borrar(id: number){
     this.HysSkillsService.eliminarSkill(id).subscribe();
+    this.cerrar();
   }
-  editar(id:number, skill:HySSkills){
+  editar(id:number, skill:Hysskills){
     this.HysSkillsService.editarSkill(id, skill).subscribe();
-    
+    this.cerrar();
   }
 
   //Funciones para los formularios
   formElement = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    valor: new FormControl('', [Validators.required]),
+    nombreF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    valorF: new FormControl('', [Validators.required]),
   });
-  get Nombre(){
-    return this.formElement.get("nombre");
+  get NombreF(){
+    return this.formElement.get("nombreF");
   }
-  get Valor(){
-    return this.formElement.get("valor");
+  get ValorF(){
+    return this.formElement.get("valorF");
   }
 
-  constructor(public modalService:NgbModal, private HysSkillsService:HysSkillsService) { }
+  constructor(public modalService:NgbModal,private tokenService: TokenService, private HysSkillsService:HysSkillsService) { }
 
   ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
     this.obtenerSkills();
   };
 }

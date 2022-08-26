@@ -3,7 +3,7 @@
   <!--Parte Visible-->
   <div class="alineador-acerca-de">
     <h2>Acerca de</h2>
-    <a class="boton"(click)="open(content)">
+    <a class="boton"(click)="open(content)" *ngIf="isLogged">
       <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
     </a>
   </div>
