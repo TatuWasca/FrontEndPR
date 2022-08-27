@@ -15,15 +15,15 @@ export class ExperienciaService {
     return this.httpCliente.get<Experiencias[]>(`${this.baseUrl}/traer`);
   }
 
-  añadirExp(Exp:Experiencias) : Observable<Object>{
+  añadirExp(Exp:Experiencias) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, Exp)
   }
 
-  editarExp(id:number, Exp:Experiencias) : Observable<Object>{
+  editarExp(id:number, Exp:Experiencias) : Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, Exp);
   }
 
-  eliminarExp(id:number) : Observable<Object>{
+  eliminarExp(id:number) : Observable<any>{
     return this.httpCliente.delete(`${this.baseUrl}/borrar/${id}`);
   }
 }

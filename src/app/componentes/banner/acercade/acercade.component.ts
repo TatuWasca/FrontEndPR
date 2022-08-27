@@ -3,8 +3,8 @@ import { Acercade } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AcercadeService } from 'src/app/services/acercade-service/acercade.service';
-import { TokenService } from 'src/app/services/token-service/token.service';
+import { AcercadeService } from 'src/app/service/acercade.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-acercade',
@@ -22,13 +22,7 @@ export class AcercaDeComponent implements OnInit {
 
   //Resetea el formulario
   cerrar(){
-    this.obtenerAcercaDe();
     this.modalService.dismissAll();
-
-    //Borrar los validators de valid y invalid, luego de cancelar el form
-    Object.keys(this.formElement.controls).forEach(key => {
-      this.formElement.get(key)!.setErrors(null) ;
-    });
   }
 
   //Permite obtener el elemento acerca de
@@ -37,12 +31,6 @@ export class AcercaDeComponent implements OnInit {
       this.AcercadeArray = data;
     })
   } 
-
-  //FunciÓn CRUD
-  editar(id:number, AcDe:Acercade){
-    this.AcercadeService.editarAcDe(id,AcDe).subscribe();
-    this.cerrar();
-  }
 
   //Comprueba que sea validos sus inputs al hacer submit
   onEditar(id:number,AcDe:Acercade){
@@ -53,12 +41,20 @@ export class AcercaDeComponent implements OnInit {
     }
   }
 
+  //FunciÓn CRUD
+  editar(id:number, AcDe:Acercade){
+    this.AcercadeService.editarAcDe(id,AcDe).subscribe(data =>{
+      this.AcercadeArray = data;
+      this.cerrar();
+    })
+  }
+
   //Funciones para los formularios
   formElement = new FormGroup({
-    descripcion: new FormControl('', [Validators.required, Validators.minLength(50), Validators.maxLength(250)]),
+    descripcionF: new FormControl('', [Validators.required, Validators.minLength(50), Validators.maxLength(250)]),
   });
-  get Descripcion(){
-    return this.formElement.get("descripcion");
+  get DescripcionF(){
+    return this.formElement.get("descripcionF");
   }
 
   constructor(public modalService:NgbModal, private tokenService: TokenService, private AcercadeService:AcercadeService) { }

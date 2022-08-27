@@ -15,15 +15,15 @@ export class EducacionService {
     return this.httpCliente.get<Educaciones[]>(`${this.baseUrl}/traer`);
   }
 
-  añadirEdu(Edu:Educaciones) : Observable<Object>{
+  añadirEdu(Edu:Educaciones) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, Edu)
   }
 
-  editarEdu(id:number, Edu:Educaciones) : Observable<Object>{
+  editarEdu(id:number, Edu:Educaciones) : Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, Edu);
   }
 
-  eliminarEdu(id:number) : Observable<Object>{
+  eliminarEdu(id:number) : Observable<any>{
     return this.httpCliente.delete(`${this.baseUrl}/borrar/${id}`);
   }
 }

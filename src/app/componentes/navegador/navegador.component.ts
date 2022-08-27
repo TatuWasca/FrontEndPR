@@ -4,8 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/model/usuario';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TokenService } from 'src/app/services/token-service/token.service';
-import { AuthService } from 'src/app/services/auth-service/auth.service';
+import { TokenService } from 'src/app/service/token.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-navegador',
@@ -23,18 +23,13 @@ export class NavegadorComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered:true, animation: false, backdrop : 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
     this.modalService.dismissAll();
     this.formElement.reset();
-
-    //Borrar los validators de valid y invalid, luego de cancelar el form
-    Object.keys(this.formElement.controls).forEach(key => {
-      this.formElement.get(key)!.setErrors(null) ;
-    });
   }
 
   //Chequea si los inputs son validos

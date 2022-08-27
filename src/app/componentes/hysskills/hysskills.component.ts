@@ -3,8 +3,8 @@ import { Hysskills } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HysSkillsService } from 'src/app/services/hysskills-service/hysskills.service';
-import { TokenService } from 'src/app/services/token-service/token.service';
+import { HysSkillsService } from 'src/app/service/hysskills.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-hysskills',
@@ -24,11 +24,9 @@ export class HySSkillsComponent implements OnInit {
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
-    this.obtenerSkills();
     this.formElement.reset();
     this.modalService.dismissAll();
   }
-
  
   //Permite obtener las skills
   private obtenerSkills(){
@@ -58,16 +56,22 @@ export class HySSkillsComponent implements OnInit {
 
   //Funciones CRUD
   crear(){
-    this.HysSkillsService.añadirSkill(this.NewSkill).subscribe();
-    this.cerrar();
+    this.HysSkillsService.añadirSkill(this.NewSkill).subscribe(data =>{
+      this.HysskillsArray = data;
+      this.cerrar();
+    });
   }
   borrar(id: number){
-    this.HysSkillsService.eliminarSkill(id).subscribe();
-    this.cerrar();
+    this.HysSkillsService.eliminarSkill(id).subscribe(data =>{
+      this.HysskillsArray = data;
+      this.cerrar();
+    });
   }
   editar(id:number, skill:Hysskills){
-    this.HysSkillsService.editarSkill(id, skill).subscribe();
-    this.cerrar();
+    this.HysSkillsService.editarSkill(id, skill).subscribe(data =>{
+      this.HysskillsArray = data;
+      this.cerrar();
+    });
   }
 
   //Funciones para los formularios

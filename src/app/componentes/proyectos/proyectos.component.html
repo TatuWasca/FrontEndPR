@@ -52,10 +52,10 @@
           class="form-control" 
           style="margin-bottom: 5px;" 
           name="nombre" 
-          [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
-          [class.is-valid]="Nombre!.touched && Nombre!.valid"
+          [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+          [class.is-valid]="NombreF!.touched && NombreF!.valid"
           [(ngModel)]="Proyectos.nombre" 
-          formControlName="nombre" 
+          formControlName="nombreF" 
           type="text">
 
           <label for="descripcion" style="line-height: 0px;">Descripcion</label>
@@ -63,10 +63,10 @@
           class="form-control" 
           style="margin-bottom: 5px;" 
           name="descripcion"
-          [class.is-invalid]="Descripcion!.touched && Descripcion!.invalid"
-          [class.is-valid]="Descripcion!.touched && Descripcion!.valid"
+          [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
+          [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
           [(ngModel)]="Proyectos.descripcion" 
-          formControlName="descripcion" 
+          formControlName="descripcionF" 
           type="text">
 
           <label for="lugar" style="line-height: 0px;">Lugar</label>
@@ -74,10 +74,10 @@
           class="form-control"
           style="margin-bottom: 5px;"
           name="lugar" 
-          [class.is-invalid]="Lugar!.touched && Lugar!.invalid"
-          [class.is-valid]="Lugar!.touched && Lugar!.valid"
+          [class.is-invalid]="LugarF!.touched && LugarF!.invalid"
+          [class.is-valid]="LugarF!.touched && LugarF!.valid"
           [(ngModel)]="Proyectos.lugar" 
-          formControlName="lugar" 
+          formControlName="lugarF" 
           type="text">
 
           <label for="fecha" style="line-height: 0px;">Fecha</label>
@@ -85,10 +85,10 @@
           class="form-control"
           style="margin-bottom: 5px;"
           name="fecha"
-          [class.is-invalid]="Fecha!.touched && Fecha!.invalid"
-          [class.is-valid]="Fecha!.touched && Fecha!.valid"
+          [class.is-invalid]="FechaF!.touched && FechaF!.invalid"
+          [class.is-valid]="FechaF!.touched && FechaF!.valid"
           [(ngModel)]="Proyectos.fecha"
-          formControlName="fecha"
+          formControlName="fechaF"
           type="text">
         </div>
 
@@ -118,10 +118,10 @@
       class="form-control" 
       style="margin-bottom: 5px;" 
       name="nombre" 
-      [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
-      [class.is-valid]="Nombre!.touched && Nombre!.valid"
+      [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+      [class.is-valid]="NombreF!.touched && NombreF!.valid"
       [(ngModel)]="NewProy.nombre"
-      formControlName="nombre" 
+      formControlName="nombreF" 
       type="text">
 
       <label for="descripcion" style="line-height: 0px;">Descripcion</label>
@@ -129,10 +129,10 @@
       class="form-control" 
       style="margin-bottom: 5px;" 
       name="descripcion"
-      [class.is-invalid]="Descripcion!.touched && Descripcion!.invalid"
-      [class.is-valid]="Descripcion!.touched && Descripcion!.valid"
+      [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
+      [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
       [(ngModel)]="NewProy.descripcion"
-      formControlName="descripcion" 
+      formControlName="descripcionF" 
       type="text">
 
       <label for="lugar" style="line-height: 0px;">Lugar</label>
@@ -140,10 +140,10 @@
       class="form-control"
       style="margin-bottom: 5px;"
       name="lugar"
-      [class.is-invalid]="Lugar!.touched && Lugar!.invalid"
-      [class.is-valid]="Lugar!.touched && Lugar!.valid"
+      [class.is-invalid]="LugarF!.touched && LugarF!.invalid"
+      [class.is-valid]="LugarF!.touched && LugarF!.valid"
       [(ngModel)]="NewProy.lugar"
-      formControlName="lugar" 
+      formControlName="lugarF" 
       type="text">
 
       <label for="fecha" style="line-height: 0px;">Fecha</label>
@@ -151,10 +151,10 @@
       class="form-control"
       style="margin-bottom: 5px;"
       name="fecha"
-      [class.is-invalid]="Fecha!.touched && Fecha!.invalid"
-      [class.is-valid]="Fecha!.touched && Fecha!.valid"
+      [class.is-invalid]="FechaF!.touched && FechaF!.invalid"
+      [class.is-valid]="FechaF!.touched && FechaF!.valid"
       [(ngModel)]="NewProy.fecha"
-      formControlName="fecha"
+      formControlName="fechaF"
       type="text">
     </div>
 

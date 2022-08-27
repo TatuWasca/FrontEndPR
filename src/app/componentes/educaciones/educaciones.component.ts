@@ -3,8 +3,8 @@ import { Educaciones } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { EducacionService } from 'src/app/services/educacion-service/educacion.service';
-import { TokenService } from 'src/app/services/token-service/token.service';
+import { EducacionService } from 'src/app/service/educacion.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-educaciones',
@@ -24,7 +24,6 @@ export class EducacionesComponent implements OnInit {
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
-    this.obtenerEdu();
     this.formElement.reset();
     this.modalService.dismissAll();
   }
@@ -55,16 +54,22 @@ export class EducacionesComponent implements OnInit {
 
   //Funciones CRUD
   crear(){
-    this.educacionService.añadirEdu(this.NewEdu).subscribe();
-    this.cerrar();
+    this.educacionService.añadirEdu(this.NewEdu).subscribe(data =>{
+      this.educacionesArray = data;
+      this.cerrar();
+    })
   }
   borrar(id: number){
-    this.educacionService.eliminarEdu(id).subscribe();
-    this.cerrar();
+    this.educacionService.eliminarEdu(id).subscribe(data =>{
+      this.educacionesArray = data;
+      this.cerrar();
+    })
   }
   editar(id:number, edu:Educaciones){
-    this.educacionService.editarEdu(id, edu).subscribe();
-    this.cerrar();
+    this.educacionService.editarEdu(id, edu).subscribe(data =>{
+      this.educacionesArray = data;
+      this.cerrar();
+    })
   }
 
   //Funciones para los formularios

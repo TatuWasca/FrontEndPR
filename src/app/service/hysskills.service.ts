@@ -15,15 +15,15 @@ export class HysSkillsService {
     return this.httpCliente.get<Hysskills[]>(`${this.baseUrl}/traer`);
   }
 
-  añadirSkill(skill:Hysskills) : Observable<Object>{
+  añadirSkill(skill:Hysskills) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, skill);
   }
 
-  editarSkill(id:number, skill:Hysskills) : Observable<Object>{
+  editarSkill(id:number, skill:Hysskills) : Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, skill);
   }
 
-  eliminarSkill(id:number) : Observable<Object>{
+  eliminarSkill(id:number) : Observable<any>{
     return this.httpCliente.delete(`${this.baseUrl}/borrar/${id}`);
   }
 }

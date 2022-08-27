@@ -31,10 +31,10 @@
               class="form-control" 
               style="margin-bottom: 5px;" 
               name="nombre" 
-              [class.is-invalid]="Nombre!.touched && Nombre!.invalid"
-              [class.is-valid]="Nombre!.touched && Nombre!.valid"
+              [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+              [class.is-valid]="NombreF!.touched && NombreF!.valid"
               [(ngModel)]="banner.nombre" 
-              formControlName="nombre" 
+              formControlName="nombreF" 
               type="text">
 
               <label for="descripcion" style="line-height: 0px;">Descripcion</label>
@@ -42,10 +42,10 @@
               class="form-control" 
               style="margin-bottom: 5px;" 
               name="descripcion"
-              [class.is-invalid]="Descripcion!.touched && Descripcion!.invalid"
-              [class.is-valid]="Descripcion!.touched && Descripcion!.valid"
+              [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
+              [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
               [(ngModel)]="banner.descripcion" 
-              formControlName="descripcion" 
+              formControlName="descripcionF" 
               type="text">
 
               <label for="localidad" style="line-height: 0px;">Lugar</label>
@@ -54,10 +54,10 @@
               style="margin-bottom: 5px;"
               name="localidad"
               [(ngModel)]="banner.localidad"
-              [class.is-invalid]="Localidad!.touched && Localidad!.invalid"
-              [class.is-valid]="Localidad!.touched && Localidad!.valid"
+              [class.is-invalid]="LocalidadF!.touched && LocalidadF!.invalid"
+              [class.is-valid]="LocalidadF!.touched && LocalidadF!.valid"
               [(ngModel)]="banner.localidad" 
-              formControlName="localidad" 
+              formControlName="localidadF" 
               type="text">
 
             </div>

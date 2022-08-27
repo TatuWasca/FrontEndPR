@@ -3,8 +3,8 @@ import { Proyectos } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ProyectosService } from 'src/app/services/proyectos-service/proyectos.service';
-import { TokenService } from 'src/app/services/token-service/token.service';
+import { ProyectosService } from 'src/app/service/proyectos.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -24,14 +24,8 @@ export class ProyectosComponent implements OnInit {
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
-    this.obtenerProy();
     this.modalService.dismissAll();
     this.formElement.reset();
-
-    //Borrar los validators de valid y invalid, luego de cancelar el form
-    Object.keys(this.formElement.controls).forEach(key => {
-      this.formElement.get(key)!.setErrors(null) ;
-    });
   }
 
   //Permite obtener los proyectos
@@ -62,36 +56,43 @@ export class ProyectosComponent implements OnInit {
 
   //Funciones CRUD
   crear(){
-    this.ProyectosService.añadirProy(this.NewProy).subscribe();
-    this.cerrar();
+    this.ProyectosService.añadirProy(this.NewProy).subscribe(data =>{
+      this.proyectosArray = data;
+      this.cerrar();
+    })
   }
   borrar(id: number){
-    this.ProyectosService.eliminarProy(id).subscribe();
-    this.cerrar();
+    this.ProyectosService.eliminarProy(id).subscribe(data =>{
+      this.proyectosArray = data;
+      this.cerrar();
+    })
+
   }
   editar(id:number, proy:Proyectos){
-    this.ProyectosService.editarProy(id, proy).subscribe();
-    this.cerrar();
+    this.ProyectosService.editarProy(id, proy).subscribe(data =>{
+      this.proyectosArray = data;
+      this.cerrar();
+    })
   }
 
   //Funciones para los formularios
   formElement = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    descripcion: new FormControl('', [Validators.required, Validators.maxLength(200)]),
-    lugar: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    fecha: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    nombreF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    descripcionF: new FormControl('', [Validators.required, Validators.maxLength(200)]),
+    lugarF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    fechaF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
-  get Nombre(){
-    return this.formElement.get("nombre");
+  get NombreF(){
+    return this.formElement.get("nombreF");
   }
-  get Descripcion(){
-    return this.formElement.get("descripcion");
+  get DescripcionF(){
+    return this.formElement.get("descripcionF");
   }
-  get Lugar(){
-   return this.formElement.get("lugar");
+  get LugarF(){
+   return this.formElement.get("lugarF");
   }
-  get Fecha(){
-    return this.formElement.get("fecha");
+  get FechaF(){
+    return this.formElement.get("fechaF");
   }
 
   constructor(public modalService:NgbModal, private tokenService: TokenService, private ProyectosService:ProyectosService) { }

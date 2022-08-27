@@ -15,15 +15,15 @@ export class ProyectosService {
     return this.httpCliente.get<Proyectos[]>(`${this.baseUrl}/traer`);
   }
 
-  añadirProy(Proy:Proyectos) : Observable<Object>{
+  añadirProy(Proy:Proyectos) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, Proy)
   }
 
-  editarProy(id:number, Proy:Proyectos) : Observable<Object>{
+  editarProy(id:number, Proy:Proyectos) : Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, Proy);
   }
 
-  eliminarProy(id:number) : Observable<Object>{
+  eliminarProy(id:number) : Observable<any>{
     return this.httpCliente.delete(`${this.baseUrl}/borrar/${id}`);
   }
 }

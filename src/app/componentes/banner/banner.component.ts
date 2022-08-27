@@ -3,8 +3,8 @@ import { Banner } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BannerService } from 'src/app/services/banner-service/banner.service';
-import { TokenService } from 'src/app/services/token-service/token.service';
+import { BannerService } from 'src/app/service/banner.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-banner',
@@ -24,11 +24,6 @@ export class BannerComponent implements OnInit {
   cerrar(){
     this.obtenerBanner();
     this.modalService.dismissAll();
-
-    //Borrar los validators de valid y invalid, luego de cancelar el form
-    Object.keys(this.formElement.controls).forEach(key => {
-      this.formElement.get(key)!.setErrors(null) ;
-    });
   }
 
   //Permite obtener el banner
@@ -37,12 +32,6 @@ export class BannerComponent implements OnInit {
       this.bannerArray = data;
     })
   } 
-
-  //Función CRUD
-  editar(id:number, ban:Banner){
-    this.BannerService.editarBan(id, ban).subscribe();
-    this.cerrar();
-  }
 
   //Comprueba que sea validos sus inputs al hacer submit
   onEditar(id:number,ban:Banner){
@@ -53,20 +42,28 @@ export class BannerComponent implements OnInit {
     }
   }
 
+  //Función CRUD
+  editar(id:number, ban:Banner){
+    this.BannerService.editarBan(id, ban).subscribe(data =>{
+      this.bannerArray = data;
+      this.cerrar();
+    })
+  }
+
   //Funciones para los formularios
   formElement = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    descripcion: new FormControl('', [Validators.required, Validators.maxLength(200)]),
-    localidad: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    nombreF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    descripcionF: new FormControl('', [Validators.required, Validators.maxLength(200)]),
+    localidadF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
   });
-  get Nombre(){
-    return this.formElement.get("nombre");
+  get NombreF(){
+    return this.formElement.get("nombreF");
   }
-  get Descripcion(){
-    return this.formElement.get("descripcion");
+  get DescripcionF(){
+    return this.formElement.get("descripcionF");
   }
-  get Localidad(){
-   return this.formElement.get("localidad");
+  get LocalidadF(){
+   return this.formElement.get("localidadF");
   }
   
   constructor(public modalService:NgbModal,private tokenService: TokenService, private BannerService:BannerService) { }

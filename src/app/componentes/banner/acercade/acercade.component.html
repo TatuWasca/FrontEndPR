@@ -26,10 +26,10 @@
         class="form-control" 
         style="margin-bottom: 5px; height: 150px" 
         name="nombre" 
-        [class.is-invalid]="Descripcion!.touched && Descripcion!.invalid"
-        [class.is-valid]="Descripcion!.touched && Descripcion!.valid"
+        [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
+        [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
         [(ngModel)]="acercaDe.descripcion" 
-        formControlName="descripcion" 
+        formControlName="descripcionF" 
         type="text"></textarea>
       </div>
 
