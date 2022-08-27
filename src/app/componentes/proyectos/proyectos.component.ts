@@ -19,13 +19,20 @@ export class ProyectosComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
     this.modalService.dismissAll();
+  }
+  cerrarCrear(){
     this.formElement.reset();
+    this.modalService.dismissAll();
+  }
+  cerrarEditar(){
+    this.obtenerProy();
+    this.modalService.dismissAll();
   }
 
   //Permite obtener los proyectos
@@ -58,7 +65,7 @@ export class ProyectosComponent implements OnInit {
   crear(){
     this.ProyectosService.añadirProy(this.NewProy).subscribe(data =>{
       this.proyectosArray = data;
-      this.cerrar();
+      this.cerrarCrear();
     })
   }
   borrar(id: number){
@@ -71,7 +78,7 @@ export class ProyectosComponent implements OnInit {
   editar(id:number, proy:Proyectos){
     this.ProyectosService.editarProy(id, proy).subscribe(data =>{
       this.proyectosArray = data;
-      this.cerrar();
+      this.cerrarEditar();
     })
   }
 

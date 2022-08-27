@@ -25,19 +25,19 @@
     </div>
 
     <!--Modal utilizado para borrar elementos-->
-    <ng-template #content let-modal (ngSubmit)="onBorrar(skill.id_HySSkill)">
+    <ng-template class="inseleccionable" #content let-modal>
       <div class="modal-header text-center">
         <h4>¿Estás seguro que quieres borrar este elemento?</h4>
       </div>
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
-        <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-        <button type="submit" class="btn btn-default" style="width:48%; padding: 15px" (click)="borrar(skill.id_Hysskills)">Aceptar</button>
+        <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
+        <button type="submit" class="btn btn-default" style="width:50%; padding: 15px" (click)="borrar(skill.id_Hysskills)">Aceptar</button>
       </div>
     </ng-template>
 
     <!--Modal utilizado para editar elementos-->
-    <ng-template #contents let-modal>
-      <form [formGroup]="formElement" (ngSubmit)="onEditar(skill.id_Hysskills, skill)">
+    <ng-template class="inseleccionable" #contents let-modal>
+      <form [formGroup]="formElement">
 
         <div class="modal-header text-center">
           <h4 class="modal-title w-100 font-weight-bold">Editar</h4>
@@ -70,8 +70,8 @@
         </div>
 
         <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
-          <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-          <input class="btn btn-default" style="width:48%; padding: 15px" value="Guardar" type="submit">
+          <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarEditar()">Cancelar</button>
+          <input class="btn btn-default" style="width:50%; padding: 15px" value="Guardar" type="submit" (click)="onEditar(skill.id_Hysskills, skill)">
         </div>
 
       </form>
@@ -80,8 +80,8 @@
 </div>
 
 <!--Modal utilizado para añadir elementos-->
-<ng-template #contenido let-modal>
-  <form [formGroup]="formElement" (ngSubmit)="onCrear()">
+<ng-template class="inseleccionable" #contenido let-modal>
+  <form [formGroup]="formElement">
 
     <div class="modal-header text-center">
       <h4 class="modal-title w-100 font-weight-bold">Añadir</h4>
@@ -114,8 +114,8 @@
     </div>
 
     <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
-      <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-      <input class="btn btn-default" style="width:48%; padding: 15px" type="submit" value="Guardar" >
+      <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarCrear()">Cancelar</button>
+      <input class="btn btn-default" style="width:50%; padding: 15px" type="submit" value="Guardar" (click)="onCrear()">
     </div>
 
   </form>

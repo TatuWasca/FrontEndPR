@@ -17,11 +17,14 @@ export class BannerComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
+    this.modalService.dismissAll();
+  }
+  cerrarEditar(){
     this.obtenerBanner();
     this.modalService.dismissAll();
   }
@@ -46,7 +49,7 @@ export class BannerComponent implements OnInit {
   editar(id:number, ban:Banner){
     this.BannerService.editarBan(id, ban).subscribe(data =>{
       this.bannerArray = data;
-      this.cerrar();
+      this.cerrarEditar();
     })
   }
 

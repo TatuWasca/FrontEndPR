@@ -13,7 +13,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavegadorComponent } from './componentes/navegador/navegador.component';
 import { BannerComponent } from './componentes/banner/banner.component';
-import { AcercaDeComponent } from './componentes/banner/acercade/acercade.component';
+import { AcercaDeComponent } from './componentes/acercade/acercade.component';
 import { EducacionesComponent } from './componentes/educaciones/educaciones.component';
 import { HySSkillsComponent } from './componentes/hysskills/hysskills.component';
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
@@ -40,9 +40,10 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
     HySSkillsComponent,
     ExperienciasComponent,
     ProyectosComponent,
+    
   ],
   providers:[
-    InterceptorService
+    InterceptorService,
   ],
   bootstrap: [ 
     AppComponent 

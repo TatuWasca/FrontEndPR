@@ -19,13 +19,20 @@ export class ExperienciasComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
     this.modalService.dismissAll();
+  }
+  cerrarCrear(){
     this.formElement.reset();
+    this.modalService.dismissAll();
+  }
+  cerrarEditar(){
+    this.obtenerExp();
+    this.modalService.dismissAll();
   }
 
   //Permite obtener las Experiencias
@@ -43,9 +50,6 @@ export class ExperienciasComponent implements OnInit {
       this.formElement.markAllAsTouched(); 
     } 
   }
-  onBorrar(id: number){
-    this.borrar(id);
-  }
   onEditar(id:number,exp:Experiencias){
     if(this.formElement.valid){
       this.editar(id,exp);
@@ -58,7 +62,7 @@ export class ExperienciasComponent implements OnInit {
   crear(){
     this.experienciaService.añadirExp(this.NewExp).subscribe(data =>{
       this.experienciasArray = data;
-      this.cerrar();
+      this.cerrarCrear();
     })
 
   }
@@ -71,7 +75,7 @@ export class ExperienciasComponent implements OnInit {
   editar(id:number, exp:Experiencias){
     this.experienciaService.editarExp(id, exp).subscribe(data =>{
       this.experienciasArray = data;
-      this.cerrar();
+      this.cerrarEditar();
     })
   }
 

@@ -12,8 +12,8 @@
   </div>
 
   <!--Modal utilizado para editar elementos-->
-  <ng-template #content let-modal>
-    <form [formGroup]="formElement" (ngSubmit)="onEditar(acercaDe.id_Usuario_Acercade, acercaDe)">
+  <ng-template class="inseleccionable" #content let-modal>
+    <form [formGroup]="formElement">
 
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
@@ -34,8 +34,8 @@
       </div>
 
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
-        <button class="btn btn-default" style="width:48%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-        <input class="btn btn-default" style="width:48%; padding: 15px" type="submit" value="Guardar" >
+        <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarEditar()">Cancelar</button>
+        <input class="btn btn-default" style="width:50%; padding: 15px" type="submit" value="Guardar" (click)="onEditar(acercaDe.id_Usuario_Acercade, acercaDe)">
       </div>
 
     </form>

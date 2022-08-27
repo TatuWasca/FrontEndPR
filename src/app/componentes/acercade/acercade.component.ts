@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Acercade } from 'src/app/model/component-models';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,11 +17,15 @@ export class AcercaDeComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop :'static'}) 
   }
 
   //Resetea el formulario
   cerrar(){
+    this.modalService.dismissAll();
+  }
+  cerrarEditar(){
+    this.obtenerAcercaDe();
     this.modalService.dismissAll();
   }
 
@@ -45,7 +49,7 @@ export class AcercaDeComponent implements OnInit {
   editar(id:number, AcDe:Acercade){
     this.AcercadeService.editarAcDe(id,AcDe).subscribe(data =>{
       this.AcercadeArray = data;
-      this.cerrar();
+      this.cerrarEditar();
     })
   }
 

@@ -19,12 +19,19 @@ export class EducacionesComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
+    this.modalService.dismissAll();
+  }
+  cerrarCrear(){
     this.formElement.reset();
+    this.modalService.dismissAll();
+  }
+  cerrarEditar(){
+    this.obtenerEdu();
     this.modalService.dismissAll();
   }
 
@@ -42,9 +49,6 @@ export class EducacionesComponent implements OnInit {
     }
     this.formElement.markAllAsTouched(); 
   }
-  onBorrar(id: number){
-    this.borrar(id);
-  }
   onEditar(id:number,edu:Educaciones){
     if(this.formElement.valid){
       this.editar(id,edu); 
@@ -56,7 +60,7 @@ export class EducacionesComponent implements OnInit {
   crear(){
     this.educacionService.añadirEdu(this.NewEdu).subscribe(data =>{
       this.educacionesArray = data;
-      this.cerrar();
+      this.cerrarCrear();
     })
   }
   borrar(id: number){
@@ -68,7 +72,7 @@ export class EducacionesComponent implements OnInit {
   editar(id:number, edu:Educaciones){
     this.educacionService.editarEdu(id, edu).subscribe(data =>{
       this.educacionesArray = data;
-      this.cerrar();
+      this.cerrarEditar();
     })
   }
 

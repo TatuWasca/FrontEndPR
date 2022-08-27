@@ -19,12 +19,19 @@ export class HySSkillsComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
+    this.modalService.dismissAll();
+  }
+  cerrarCrear(){
     this.formElement.reset();
+    this.modalService.dismissAll();
+  }
+  cerrarEditar(){
+    this.obtenerSkills();
     this.modalService.dismissAll();
   }
  
@@ -43,9 +50,6 @@ export class HySSkillsComponent implements OnInit {
       this.formElement.markAllAsTouched(); 
     } 
   }
-  onBorrar(id: number){
-    this.borrar(id);
-  }
   onEditar(id:number,skill:Hysskills){
     if(this.formElement.valid){
       this.editar(id,skill); 
@@ -58,7 +62,7 @@ export class HySSkillsComponent implements OnInit {
   crear(){
     this.HysSkillsService.añadirSkill(this.NewSkill).subscribe(data =>{
       this.HysskillsArray = data;
-      this.cerrar();
+      this.cerrarCrear();
     });
   }
   borrar(id: number){
@@ -70,7 +74,7 @@ export class HySSkillsComponent implements OnInit {
   editar(id:number, skill:Hysskills){
     this.HysSkillsService.editarSkill(id, skill).subscribe(data =>{
       this.HysskillsArray = data;
-      this.cerrar();
+      this.cerrarEditar();
     });
   }
 

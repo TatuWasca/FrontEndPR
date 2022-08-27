@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/model/usuario';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from 'src/app/service/token.service';
 import { AuthService } from 'src/app/service/auth.service';
 
@@ -23,13 +22,13 @@ export class NavegadorComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered:true, animation: false, backdrop : 'static'}) 
+    this.modalService.open(contenido, {centered:true, animation:false, backdrop: 'static'}) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
-    this.modalService.dismissAll();
     this.formElement.reset();
+    this.modalService.dismissAll();
   }
 
   //Chequea si los inputs son validos
@@ -54,6 +53,8 @@ export class NavegadorComponent implements OnInit {
       this.isLogged = false;
       this.isLoginFailed = true;
       this.errMsj = err.error.mensaje;
+      this.formElement.reset();
+      alert("Usuario y/o contraseña incorrecta")
     });
   }
   //Cierra la sesión del usuario
