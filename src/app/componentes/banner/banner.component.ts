@@ -55,9 +55,9 @@ export class BannerComponent implements OnInit {
 
   //Funciones para los formularios
   formElement = new FormGroup({
-    nombreF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    descripcionF: new FormControl('', [Validators.required, Validators.maxLength(200)]),
-    localidadF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    nombreF: new FormControl('', [Validators.required, Validators.maxLength(25)]),
+    descripcionF: new FormControl('', [Validators.required, Validators.maxLength(25)]),
+    localidadF: new FormControl('', [Validators.required, Validators.maxLength(25)]),
   });
   get NombreF(){
     return this.formElement.get("nombreF");
