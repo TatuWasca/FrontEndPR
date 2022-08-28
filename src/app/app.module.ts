@@ -19,7 +19,6 @@ import { HySSkillsComponent } from './componentes/hysskills/hysskills.component'
 import { ExperienciasComponent } from './componentes/experiencias/experiencias.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
-import { CargandoComponent } from './componentes/cargando/cargando.component';
 
 @NgModule({
   imports: [ 
@@ -42,8 +41,7 @@ import { CargandoComponent } from './componentes/cargando/cargando.component';
     HySSkillsComponent,
     ExperienciasComponent,
     ProyectosComponent,
-    InicioComponent,
-    CargandoComponent,
+    InicioComponent
     
   ],
   providers:[
