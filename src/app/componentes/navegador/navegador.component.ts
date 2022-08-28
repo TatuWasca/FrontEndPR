@@ -48,6 +48,7 @@ export class NavegadorComponent implements OnInit {
       this.tokenService.setToken(data.token);
       this.tokenService.setUsername(data.nombreUsuario);
       this.cerrar();
+      window.location.reload();
     }, err =>{
       this.isLogged = false;
       this.isLoginFailed = true;
