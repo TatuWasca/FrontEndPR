@@ -7,7 +7,7 @@ import { Hysskills } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class HysSkillsService {
-  private baseUrl = "http://localhost:8080/Hysskills"
+  private baseUrl = "https://backendpr.herokuapp.com/Hysskills"
 
   constructor(private httpCliente: HttpClient) { }
 

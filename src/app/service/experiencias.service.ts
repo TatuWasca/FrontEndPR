@@ -7,7 +7,7 @@ import { Experiencias } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  private baseUrl = "http://localhost:8080/Experiencias"
+  private baseUrl = "https://backendpr.herokuapp.com/Experiencias"
 
   constructor(private httpCliente: HttpClient) { }
 
