@@ -11,7 +11,6 @@ html::-webkit-scrollbar {
 body{
     z-index: -1;
     font-family: Arial, Helvetica, sans-serif;  
-    background: rgb(190,160,94);
     background: linear-gradient(133deg, rgba(190,160,94,1) 38%, rgba(236,255,190,1) 100%);
 }
 /*Evita que sea posible seleccionar items*/
