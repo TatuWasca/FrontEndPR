@@ -20,6 +20,10 @@ export class ProyectosComponent implements OnInit {
   //Abre el modal
   open(contenido:any) {
     this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
+  }
+
+  //Hace focus al boton aceptar, agrega más comodidad en general
+  focus(){
     setTimeout(() => { document.getElementById("aceptar")!.focus() }, 50) 
   }
 

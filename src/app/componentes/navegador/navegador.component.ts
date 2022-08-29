@@ -23,7 +23,13 @@ export class NavegadorComponent implements OnInit {
   //Abre el modal
   open(contenido:any) {
     this.modalService.open(contenido, {centered:true, animation:false, backdrop: 'static'})
-    setTimeout(() => { document.getElementById("aceptar")!.focus() }, 50) 
+  }
+
+  //Hace focus al boton aceptar, agrega más comodidad en general
+  focus(){
+    if(this.isLogged){
+      setTimeout(() => { document.getElementById("aceptar")!.focus() }, 50) 
+    }
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
