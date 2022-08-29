@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./navegador.component.css']
 })
 export class NavegadorComponent implements OnInit {
-  isLogged: boolean = false;
+  isLogged: boolean = true;
   isLoginFailed: boolean = false;
   Usuario: Usuario;
   nombreUsuario: string;
@@ -23,14 +23,11 @@ export class NavegadorComponent implements OnInit {
   //Abre el modal
   open(contenido:any) {
     this.modalService.open(contenido, {centered:true, animation:false, backdrop: 'static'})
-  }
-
-  //Hace focus al boton aceptar, agrega más comodidad en general
-  focus(){
     if(this.isLogged){
-      setTimeout(() => { document.getElementById("aceptar")!.focus() }, 50) 
+      setTimeout(() => { document.getElementById("aceptar")!.focus() }, 50)
     }
   }
+
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
