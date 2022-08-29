@@ -46,14 +46,16 @@ export class EducacionesComponent implements OnInit {
   onCrear(){
     if(this.formElement.valid){
       this.crear();
+    }else{
+      this.formElement.markAllAsTouched(); 
     }
-    this.formElement.markAllAsTouched(); 
   }
   onEditar(id:number,edu:Educaciones){
     if(this.formElement.valid){
       this.editar(id,edu); 
+    }else{
+      this.formElement.markAllAsTouched(); 
     }
-    this.formElement.markAllAsTouched(); 
   }
 
   //Funciones CRUD
