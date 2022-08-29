@@ -34,7 +34,7 @@
     </div>
     <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid" >
       <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-      <input type="submit" value="Aceptar" class="btn btn-default" style="width:50%; padding: 15px" (click)="logout()">
+      <button id="aceptar" class="btn btn-default" style="width:50%; padding: 15px" (click)="logout()">Aceptar</button>
     </div>
   </div>
    <!--Abre sesion si no está activa-->
@@ -71,7 +71,7 @@
       <!--Boton para acceder-->
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid" >
         <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-        <input type="submit" value="Acceder" class="btn btn-default" style="width:50%; padding: 20px;" (click)="onLogin()">
+        <button type="submit" class="btn btn-default" style="width:50%; padding: 20px;" (click)="onLogin()">Acceder</button>
       </div>
     </form>
   </div>

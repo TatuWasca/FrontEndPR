@@ -34,7 +34,7 @@
       </div>
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
         <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-        <button class="btn btn-default" style="width:50%; padding: 15px" (click)="borrar(Proyectos.id_Proyecto)">Aceptar</button>
+        <button id="aceptar" class="btn btn-default" style="width:50%; padding: 15px" (click)="borrar(Proyectos.id_Proyecto)">Aceptar</button>
       </div>
     </ng-template>  
 
@@ -94,7 +94,7 @@
 
         <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
           <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarEditar()">Cancelar</button>
-          <input class="btn btn-default" style="width:50%; padding: 15px" type="submit" value="Guardar" (click)="onEditar(Proyectos.id_Proyecto, Proyectos)">
+          <button class="btn btn-default" style="width:50%; padding: 15px" type="submit" (click)="onEditar(Proyectos.id_Proyecto, Proyectos)">Guardar</button>
         </div>
 
       </form>
@@ -160,7 +160,7 @@
 
     <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
       <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarCrear()">Cancelar</button>
-      <input class="btn btn-default" style="width:50%; padding: 15px" type="submit" value="Guardar" (click)="onCrear()">
+      <button class="btn btn-default" style="width:50%; padding: 15px" type="submit" value="Guardar" (click)="onCrear()">Guardar</button>
     </div>
 
   </form>

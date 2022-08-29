@@ -18,7 +18,7 @@
 /* Media Query para tabletas u otros de mayor tamaño*/
 @media (min-width: 768px) and (max-width: 1024px){
     .div-diapositivas-informacion{
-    padding: 40px 200px 5px 200px;
+    padding: 40px 150px 5px 150px;
     }
 } 
 /* Media Query para laptops y monitores*/

@@ -19,7 +19,8 @@ export class HySSkillsComponent implements OnInit {
 
   //Abre el modal
   open(contenido:any) {
-    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'}) 
+    this.modalService.open(contenido, {centered: true, animation: false, backdrop: 'static'})
+    setTimeout(() => { document.getElementById("aceptar")!.focus() }, 50) 
   }
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
