@@ -27,6 +27,7 @@ export class NavegadorComponent implements OnInit {
 
   //Cierra el modal, quita los cambios, resetea el formulario y sus validators
   cerrar(){
+    this.formElement.reset();
     this.modalService.dismissAll();
   }
 
@@ -46,8 +47,8 @@ export class NavegadorComponent implements OnInit {
       this.isLoginFailed = false;
       this.tokenService.setToken(data.token);
       this.tokenService.setUsername(data.nombreUsuario);
-      this.formElement.reset();
       this.cerrar();
+      window.location.reload();
     }, err =>{
       this.isLogged = false;
       this.isLoginFailed = true;
@@ -60,6 +61,7 @@ export class NavegadorComponent implements OnInit {
   logout(): void{
     this.tokenService.logOut();
     this.cerrar();
+    window.location.reload();
   }
 
   //Funciones para los formularios
