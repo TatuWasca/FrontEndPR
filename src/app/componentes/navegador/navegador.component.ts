@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./navegador.component.css']
 })
 export class NavegadorComponent implements OnInit {
-  isLogged: boolean = true;
+  isLogged: boolean = false;
   isLoginFailed: boolean = false;
   Usuario: Usuario;
   nombreUsuario: string;
