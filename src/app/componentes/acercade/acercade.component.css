@@ -1,12 +1,3 @@
-.animador{
-    animation: fadeIn 1.7s;
-    animation-fill-mode: forwards;
-    opacity: 0;
-}
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
 p{
     position: relative;
     bottom: 10px;
@@ -31,7 +22,7 @@ div{
 /*Media Query para mobiles*/
 @media (max-width: 480px) {
     h5{
-        font-size: 10px;
+        font-size: 8px;
     }
     p{
         line-height: 8px;

@@ -1,6 +1,5 @@
 .pie{
     position: sticky;
-    
 }
 .contenedor{
     display: flex;
@@ -37,28 +36,41 @@
 /*Media Query para mobiles*/
 @media (max-width: 480px) {
     .enlaces li a{
-        font-size: 9px;
-        margin: 0px 0px 0px 0px;
+        font-size: 7px;
+        margin: 0px;
+        padding: 5px 10px 5px 10px;
     }
     .enlaces{
-        width: 80%;
+        width: 90%;
+    }
+    .copyRight{
+        height: 20px;
+    }
+    .copyRight p{
+        font-size: 7px;
     }
 } 
 /*Media Query para tabletas y ipads*/
 @media (min-width: 481px) and (max-width: 767px) {
     .enlaces li a{
-        font-size: 10px;
-        margin: 0px 0px 0px 0px;
+        font-size: 9px;
+        margin: 0px;
     }
     .enlaces{
         width: 80%;
+    }
+    .copyRight{
+        height: 20px;
+    }
+    .copyRight p{
+        font-size: 7px;
     }
 }
 /* Media Query para tabletas u otros de mayor tamaño*/
 @media (min-width: 768px) and (max-width: 1024px){
     .enlaces li a{
-        font-size: 15px;
-        margin: 0px 0px 0px 0px;
+        font-size: 13px;
+        margin: 0px;
     }
     .enlaces{
         width: 70%;
@@ -68,7 +80,7 @@
 @media (min-width: 1025px) and (max-width: 1280px){
     .enlaces li a{
         font-size: 15px;
-        margin: 0px 0px 0px 0px;
+        margin: 0px;
     }
     .enlaces{
         width: 60%;

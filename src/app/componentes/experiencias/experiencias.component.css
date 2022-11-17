@@ -3,8 +3,9 @@
     border: 1px darkgray  solid;
     border-radius: 50px;
     margin-bottom: 10px;
+    padding-bottom: 50px;
     line-height: 5px;
-    background-color: whitesmoke;
+    background-color: lightgray;
     border-radius: 50px;
     
     animation: fadeIn 1.7s;
@@ -14,18 +15,18 @@
 }
 @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
-    
+    to { opacity: 1; }   
 }
 .cabecera{
     padding: 20px 0px 0px 30px;
-    background-color: rgba(210, 210, 210, 0.8);
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
 .nombre-y-botones{
     list-style: none;
-    border-top: 1px lightgray solid;
+    background-color: whitesmoke;
+    border-top: 1px darkgray solid;
+    border-bottom: 1px darkgray solid;
     padding: 20px 0px 15px 30px;
 }
 .informacion{

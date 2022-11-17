@@ -28,7 +28,7 @@
 /*Media Query para mobiles*/
 @media (max-width: 480px) {
     .Cuadro{
-        width: 70%;
+        width: 90%;
     }
 } 
 /*Media Query para tabletas y ipads*/

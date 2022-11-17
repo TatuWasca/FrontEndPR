@@ -34,4 +34,5 @@ export class Proyectos{
     descripcion: string
     lugar: string;
     fecha: string;
+    url: string;
 }

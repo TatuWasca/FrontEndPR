@@ -1,10 +1,11 @@
 /*Tags para las diapositivas de información*/
 .proyectos{
-    border: 1px darkgray  solid;
+    border: 1px darkgray solid;
     border-radius: 50px;
     margin-bottom: 10px;
+    padding-bottom: 50px;
     line-height: 5px;
-    background-color: whitesmoke;
+    background-color: lightgray;
     border-radius: 50px;
     
     animation: fadeIn 1.7s;
@@ -19,13 +20,14 @@
 }
 .cabecera{
     padding: 20px 0px 0px 30px;
-    background-color: rgba(210, 210, 210, 0.8);
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
 .nombre-y-botones{
     list-style: none;
-    border-top: 1px lightgray solid;
+    border-top: 1px darkgray solid;
+    border-bottom: 1px darkgray solid;
+    background-color: whitesmoke;
     padding: 20px 0px 15px 30px;
 }
 .informacion{
@@ -35,17 +37,24 @@
 }
 .informacion div{
     display: grid;
-    justify-items: center;
     padding-left: 10px;
     margin-right: 10px;
 }
 .informacion div p{
     display:flex;
-    align-items: center;
     line-height: 15px;
     margin: 1.5px;
     width: 100%;
     height: 100%;
+}
+.informacion div a{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px darkgrey solid;
+    background-color: bisque;
+    color: black;
 }
 
 /*Media Queries de todos los tipos de pantallas*/
@@ -55,12 +64,24 @@
         width: 50px;
         height: 50px;
     }
+    .informacion div a{
+        margin: 5px 0px 0px 0px;
+        padding: 5px;
+        width: 75px;
+        font-size: 8px;
+    }
 } 
 /*Media Query para tabletas y ipads*/
 @media (min-width: 481px) and (max-width: 767px) {
     .informacion img{
         width: 75px;
         height: 75px;
+    }
+    .informacion div a{
+        margin: 5px 0px 0px 0px;
+        padding: 5px;
+        width: 95px;
+        font-size: 11px;
     }
 }
 /* Media Query para tabletas u otros de mayor tamaño*/
@@ -69,12 +90,24 @@
         width: 75px;
         height: 75px;
     }
+    .informacion div a{
+        margin: 5px 0px 0px 0px;
+        padding: 5px;
+        width: 95px;
+        font-size: 11px;
+    }
 } 
 /* Media Query para laptops y monitores*/
 @media (min-width: 1025px) and (max-width: 1280px){
     .informacion img{
         width: 75px;
         height: 75px;
+    }
+    .informacion div a{
+        margin: 5px 0px 0px 0px;
+        padding: 5px;
+        width: 110px;
+        font-size: 13px;
     }
 }
 /* Media Query para grandes pantallas*/
@@ -83,11 +116,23 @@
         width: 100px;
         height: 100px;
     }
+    .informacion div a{
+        margin: 10px 0px 0px 0px;
+        padding: 10px;
+        width: 125px;
+        font-size: 14px;
+    }
 }
 /* Media Query para pantallas XL*/
 @media (min-width: 1601px) {
     .informacion img{
         width: 125px;
         height: 125px;
+    }
+    .informacion div a{
+        margin: 10px 0px 0px 0px;
+        padding: 10px;
+        width: 130px;
+        font-size: 15px;
     }
 }

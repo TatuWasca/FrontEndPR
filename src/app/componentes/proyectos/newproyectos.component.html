@@ -49,6 +49,18 @@
         [(ngModel)]="NewProy.fecha"
         formControlName="fechaF"
         type="text">
+
+        <label for="url" style="line-height: 0px;">Url</label>
+        <input 
+        class="form-control"
+        style="margin-bottom: 5px;"
+        name="url"
+        [class.is-invalid]="UrlF!.touched && UrlF!.invalid"
+        [class.is-valid]="UrlF!.touched && UrlF!.valid"
+        [(ngModel)]="NewProy.url"
+        formControlName="urlF"
+        type="text">
+
       </div>
     
       <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">

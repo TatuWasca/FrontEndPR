@@ -6,7 +6,7 @@
 /*Media Query para mobiles*/
 @media (max-width: 480px) {
     .div-diapositivas-informacion{
-    padding: 10px 30px 5px 30px;
+    padding: 10px 10px 5px 10px;
     }
 } 
 /*Media Query para tabletas y ipads*/

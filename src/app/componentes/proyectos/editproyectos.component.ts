@@ -34,6 +34,7 @@ export class EditproyectosComponent implements OnInit {
     descripcionF: new FormControl('', [Validators.required, Validators.maxLength(200)]),
     lugarF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     fechaF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    urlF: new FormControl('', [Validators.required, Validators.maxLength(250)]),
   });
   get NombreF(){
     return this.formElement.get("nombreF");
@@ -46,6 +47,9 @@ export class EditproyectosComponent implements OnInit {
   }
   get FechaF(){
     return this.formElement.get("fechaF");
+  }
+  get UrlF(){
+    return this.formElement.get("urlF");
   }
 
   constructor(private proyectosService:ProyectosService, private activatedRouter: ActivatedRoute, private router: Router) { }

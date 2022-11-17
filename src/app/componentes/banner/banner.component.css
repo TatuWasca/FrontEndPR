@@ -74,6 +74,9 @@
         width: 50%;
         margin-left: 30%;
     }
+    .icono-edit{
+
+    }
 } 
 /*Media Query para tabletas y ipads*/
 @media (min-width: 481px) and (max-width: 767px) {

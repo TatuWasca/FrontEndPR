@@ -34,6 +34,7 @@ export class NewproyectosComponent implements OnInit {
     descripcionF: new FormControl('', [Validators.required, Validators.maxLength(200)]),
     lugarF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     fechaF: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+    urlF: new FormControl('', [Validators.required, Validators.maxLength(250)]),
   });
   get NombreF(){
     return this.formElement.get("nombreF");
@@ -47,7 +48,10 @@ export class NewproyectosComponent implements OnInit {
   get FechaF(){
     return this.formElement.get("fechaF");
   }
-
+  get UrlF(){
+    return this.formElement.get("urlF");
+  }
+  
   constructor(private proyectosService:ProyectosService, private router: Router) { }
 
   ngOnInit(): void {
