@@ -5,14 +5,21 @@
     margin-bottom: 10px;
     border: 1px lightgray solid;
     z-index: 3;
+
+    animation: fadeIn 1.7s;
+    animation-fill-mode: forwards;
+    opacity: 0;
 }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
     
+}  
 .img-banner{
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom: 1px lightgray solid;
-}
-    
+}  
 .banner-icono-y-informacion{
     display: flex;
     position: relative;
@@ -20,24 +27,20 @@
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
 }
-
 .icono-y-acerca-de{
     position: relative;
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-
 .icono-y-informacion{
     position: absolute;
     line-height: 0px !important;
-}
-    
+} 
 .icono{
     border: 1px lightgray solid;
     border-radius: 50%;
 }
-
 .acerca-de{
     position: relative;
     width: 50%;

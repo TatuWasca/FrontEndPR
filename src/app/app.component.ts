@@ -7,12 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent{
   title = 'TrabajoIntegrador';
-
-  loader:boolean = true;
   ngOnInit(): void {
-    setTimeout(()=>{                           
-      this.loader = false;
-    }, 2000);
   }
 }
   

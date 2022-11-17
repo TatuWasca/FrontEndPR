@@ -15,6 +15,10 @@ export class BannerService {
     return this.httpCliente.get<Banner[]>(`${this.baseUrl}/traer`);
   }
 
+  obtenerDetalles(id: number) : Observable<Banner>{
+    return this.httpCliente.get<Banner>(`${this.baseUrl}/detalles/${id}`);
+  }
+
   editarBan(id:number, ban:Banner) : Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, ban);
   }

@@ -6,36 +6,36 @@
 /*Media Query para mobiles*/
 @media (max-width: 480px) {
     .div-diapositivas-informacion{
-    padding: 40px 30px 5px 30px;
+    padding: 10px 30px 5px 30px;
     }
 } 
 /*Media Query para tabletas y ipads*/
 @media (min-width: 481px) and (max-width: 767px) {
     .div-diapositivas-informacion{
-    padding: 40px 50px 5px 50px;
+    padding: 10px 50px 5px 50px;
     }
 }
 /* Media Query para tabletas u otros de mayor tamaño*/
 @media (min-width: 768px) and (max-width: 1024px){
     .div-diapositivas-informacion{
-    padding: 40px 150px 5px 150px;
+    padding: 10px 150px 5px 150px;
     }
 } 
 /* Media Query para laptops y monitores*/
 @media (min-width: 1025px) and (max-width: 1280px){
     .div-diapositivas-informacion{
-    padding: 55px 250px 5px 250px;
+    padding: 10px 250px 5px 250px;
     }
 }
 /* Media Query para grandes pantallas*/
 @media (min-width: 1281px) and (max-width: 1600px){
     .div-diapositivas-informacion{
-    padding: 55px 400px 5px 400px;
+    padding: 15px 400px 5px 400px;
     }
 }
 /* Media Query para pantallas XL*/
 @media (min-width: 1601px) {
     .div-diapositivas-informacion{
-    padding: 55px 500px 5px 500px;
+    padding: 15px 500px 5px 500px;
     }
 }

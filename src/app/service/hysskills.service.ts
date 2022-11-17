@@ -15,6 +15,10 @@ export class HysSkillsService {
     return this.httpCliente.get<Hysskills[]>(`${this.baseUrl}/traer`);
   }
 
+  obtenerDetalles(id: number) : Observable<Hysskills>{
+    return this.httpCliente.get<Hysskills>(`${this.baseUrl}/detalles/${id}`);
+  }
+
   añadirSkill(skill:Hysskills) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, skill);
   }

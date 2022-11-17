@@ -15,6 +15,10 @@ export class AcercadeService {
     return this.httpCliente.get<Acercade[]>(`${this.baseUrl}/traer`);
   }
 
+  obtenerDetalles(id: number) : Observable<Acercade>{
+    return this.httpCliente.get<Acercade>(`${this.baseUrl}/detalles/${id}`);
+  }
+
   editarAcDe(id:number, AcDe:Acercade) : Observable<any>{
     return this.httpCliente.put(`${this.baseUrl}/editar/${id}`, AcDe);
   }

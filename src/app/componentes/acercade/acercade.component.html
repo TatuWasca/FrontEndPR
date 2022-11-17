@@ -1,43 +1,13 @@
-<div *ngFor="let acercaDe of AcercadeArray">
+<div class="animador" *ngFor="let acercaDe of AcercadeArray">
 
   <!--Parte Visible-->
   <div class="alineador-acerca-de">
     <h2>Acerca de</h2>
-    <a class="boton"(click)="open(content)" *ngIf="isLogged">
+    <a routerLink="/editacde/{{acercaDe.id_Usuario_Acercade}}" class="boton" *ngIf="isLogged">
       <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
     </a>
   </div>
   <div>
     <p>{{acercaDe.descripcion}}</p>
   </div>
-
-  <!--Modal utilizado para editar elementos-->
-  <ng-template class="inseleccionable" #content let-modal>
-    <form [formGroup]="formElement">
-
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
-      </div>
-
-      <!--Inputs con sus clases que detectan si el form es valido--> 
-      <div class="modal-body" style="background-color: rgba(238,238,238,1);">
-        <label for="nombre">Descripción</label>
-        <textarea 
-        class="form-control" 
-        style="margin-bottom: 5px; height: 150px" 
-        name="nombre" 
-        [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
-        [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
-        [(ngModel)]="acercaDe.descripcion" 
-        formControlName="descripcionF" 
-        type="text"></textarea>
-      </div>
-
-      <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
-        <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarEditar()">Cancelar</button>
-        <button class="btn btn-default" style="width:50%; padding: 15px" type="submit" (click)="onEditar(acercaDe.id_Usuario_Acercade, acercaDe)">Guardar</button>
-      </div>
-
-    </form>
-  </ng-template>
 </div>

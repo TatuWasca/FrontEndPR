@@ -15,6 +15,10 @@ export class EducacionService {
     return this.httpCliente.get<Educaciones[]>(`${this.baseUrl}/traer`);
   }
 
+  obtenerDetalles(id: number) : Observable<Educaciones>{
+    return this.httpCliente.get<Educaciones>(`${this.baseUrl}/detalles/${id}`);
+  }
+
   añadirEdu(Edu:Educaciones) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, Edu)
   }

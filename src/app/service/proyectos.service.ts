@@ -15,6 +15,10 @@ export class ProyectosService {
     return this.httpCliente.get<Proyectos[]>(`${this.baseUrl}/traer`);
   }
 
+  obtenerDetalles(id: number) : Observable<Proyectos>{
+    return this.httpCliente.get<Proyectos>(`${this.baseUrl}/detalles/${id}`);
+  }
+
   añadirProy(Proy:Proyectos) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, Proy)
   }

@@ -15,6 +15,10 @@ export class ExperienciaService {
     return this.httpCliente.get<Experiencias[]>(`${this.baseUrl}/traer`);
   }
 
+  obtenerDetalles(id: number) : Observable<Experiencias>{
+    return this.httpCliente.get<Experiencias>(`${this.baseUrl}/detalles/${id}`);
+  }
+
   añadirExp(Exp:Experiencias) : Observable<any>{
     return this.httpCliente.post(`${this.baseUrl}/crear`, Exp)
   }

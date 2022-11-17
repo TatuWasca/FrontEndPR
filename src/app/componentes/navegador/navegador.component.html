@@ -5,6 +5,7 @@
     <p>Argentina Programa #YoProgramo</p>
   </div>
   
+  
   <!--contactos-->
   <div class="iconos-de-navegador">
     <a class="icono" href="https://es-la.facebook.com/people/Pablo-Rubiolo/100013166437499/" target="_blank">
@@ -17,62 +18,11 @@
       <img  src="assets/images/logo-twitter.jpg" alt="Twitter" height="30px" width="30px">
     </a>
    <!--Login y logout-->
-    <a class="icono-log" *ngIf="isLogged" (click)="open(contenido)">
+    <a routerLink="/login" class="icono-log" *ngIf="isLogged">
       <img src="assets/images/icono-logout.jpg" alt="Logout" height="30px" width="45px">
     </a>
-    <a class="icono-log" *ngIf="!isLogged"(click)="open(contenido)">
+    <a routerLink="/login" class="icono-log" *ngIf="!isLogged">
       <img src="assets/images/icono-login.jpg" alt="Login" height="30px" width="45px">
     </a>
   </div>
 </nav>
-
-<ng-template #contenido let-modal>
-  <!--Cierra sesion si está activa-->
-  <div *ngIf="isLogged">
-    <div class="modal-header text-center">
-      <h4>¿Estás seguro que quieres salir de tu cuenta?</h4>
-    </div>
-    <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid" >
-      <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-      <button id="aceptar" class="btn btn-default" style="width:50%; padding: 15px" (click)="logout()">Aceptar</button>
-    </div>
-  </div>
-   <!--Abre sesion si no está activa-->
-  <div *ngIf="!isLogged">
-    <form [formGroup]="formElement">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Login</h4>
-      </div>
-      <!--Input de email-->
-      <div class="modal-body" style="background-color: rgba(238,238,238,1)">
-        <div class="md-form mb-4">
-          <label for="usuario">Usuario</label>
-          <input 
-          type="text" 
-          name="usuario" 
-          class="form-control" 
-          [class.is-invalid]="NombreUsuario!.touched && NombreUsuario!.invalid"
-          [class.is-valid]="NombreUsuario!.touched && NombreUsuario!.valid"
-          [(ngModel)]="nombreUsuario"
-          formControlName="nombreUsuario">
-        </div>
-        <!--Input de contraseña-->
-        <div class="md-form mb-3">
-          <label for="contraseña">Contraseña</label>
-          <input type="password" 
-          name="contraseña" 
-          class="form-control"
-          [class.is-invalid]="Password!.touched && Password!.invalid"
-          [class.is-valid]="Password!.touched && Password!.valid"
-          [(ngModel)]="password"
-          formControlName="password">
-        </div>
-      </div>
-      <!--Boton para acceder-->
-      <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid" >
-        <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrar()">Cancelar</button>
-        <button type="submit" class="btn btn-default" style="width:50%; padding: 20px;" (click)="onLogin()">Acceder</button>
-      </div>
-    </form>
-  </div>
-</ng-template>  

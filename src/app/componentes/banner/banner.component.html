@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner" id="top">
   <img class="img-banner" src="assets/images/usuario/banner.jpg" alt="banner" width="100%" height="150px">
   <div class="banner-icono-y-informacion">
     <table class="icono-y-acerca-de">
@@ -7,7 +7,7 @@
         <!--Parte Visible-->
         <div class="alineador-banner">
           <img class="icono" src="assets/images/usuario/icono-perfil.jpg" alt="icono de perfil" width="50px" height="50px">
-          <a class="boton"(click)="open(content)" *ngIf="isLogged">
+          <a routerLink="/editban/{{banner.id_Usuario_Banner}}" *ngIf="isLogged">
             <img src="assets/images/icono-editar.jpg" alt="icono-editar" height="15px" width="15px">
           </a>
         </div>
@@ -16,59 +16,6 @@
           <p>{{banner.descripcion}}</p>
           <p>{{banner.localidad}}</p>
         </div>
-        
-        <!--Modal utilizado para editar elementos-->
-        <ng-template class="inseleccionable" #content let-modal>
-          <form [formGroup]="formElement">
-            <div class="modal-header text-center">
-              <h4 class="modal-title w-100 font-weight-bold">Modificar</h4>
-            </div>
-
-            <div class="modal-body" style="background-color: rgba(238,238,238,1);">
-              <!--Inputs con sus clases que detectan si el form es valido--> 
-              <label for="nombre" style="line-height: 0px;">Nombre</label>
-              <input 
-              class="form-control" 
-              style="margin-bottom: 5px;" 
-              name="nombre" 
-              [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
-              [class.is-valid]="NombreF!.touched && NombreF!.valid"
-              [(ngModel)]="banner.nombre" 
-              formControlName="nombreF" 
-              type="text">
-
-              <label for="descripcion" style="line-height: 0px;">Descripcion</label>
-              <input 
-              class="form-control" 
-              style="margin-bottom: 5px;" 
-              name="descripcion"
-              [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
-              [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
-              [(ngModel)]="banner.descripcion" 
-              formControlName="descripcionF" 
-              type="text">
-
-              <label for="localidad" style="line-height: 0px;">Lugar</label>
-              <input 
-              class="form-control"
-              style="margin-bottom: 5px;"
-              name="localidad"
-              [(ngModel)]="banner.localidad"
-              [class.is-invalid]="LocalidadF!.touched && LocalidadF!.invalid"
-              [class.is-valid]="LocalidadF!.touched && LocalidadF!.valid"
-              [(ngModel)]="banner.localidad" 
-              formControlName="localidadF" 
-              type="text">
-
-            </div>
-
-            <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
-              <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cerrarEditar()">Cancelar</button>
-              <button class="btn btn-default" style="width:50%; padding: 15px" type="submit" (click)="onEditar(banner.id_Usuario_Banner, banner)">Guardar</button>
-            </div>
-
-          </form>
-        </ng-template> 
       </td>
       <td class="acerca-de">
         <app-acercade></app-acercade>

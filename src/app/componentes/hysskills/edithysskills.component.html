@@ -1,0 +1,40 @@
+<div class="Contenedor">
+  <form class="Cuadro" [formGroup]="formElement">
+
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100 font-weight-bold">Editar</h4>
+    </div>
+
+    <!--Inputs con sus clases que detectan si el form es valido--> 
+    <div class="modal-body" style="background-color: rgba(238,238,238,1);">
+
+      <label for="nombre" style="line-height: 0px;">Nombre</label>
+      <input 
+      class="form-control" 
+      style="margin-bottom: 5px;" 
+      name="nombre"
+      [(ngModel)]="hysskills.nombre"
+      [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+      [class.is-valid]="NombreF!.touched && NombreF!.valid"
+      formControlName="nombreF" 
+      type="text">
+
+      <div style="display:grid; margin-top: 10px;">
+        <label for="valor">Valor - {{hysskills.valor}}%</label>
+        <input 
+        name="valor" 
+        min="0" max="100" value="100" 
+        formControlName="valorF"
+        [(ngModel)]="hysskills.valor"  
+        type="range">
+      </div>
+
+    </div>
+
+    <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
+      <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cancelar()">Cancelar</button>
+      <button class="btn btn-default" style="width:50%; padding: 15px" type="submit" (click)="onEditar()">Guardar</button>
+    </div>
+
+  </form>
+</div>

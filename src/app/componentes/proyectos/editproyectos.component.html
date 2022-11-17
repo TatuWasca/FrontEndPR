@@ -1,0 +1,59 @@
+<div class="Contenedor">
+    <form  class="Cuadro" [formGroup]="formElement">
+      <div class="modal-header text-center justify-content-center">
+        <h4 class="modal-title font-weight-bold">Editar</h4>
+      </div>
+    
+      <div class="modal-body" style="background-color: rgba(238,238,238,1);">
+        <!--Inputs con sus clases que detectan si el form es valido--> 
+        <label for="nombre" style="line-height: 0px;">Nombre</label>
+        <input 
+        class="form-control" 
+        style="margin-bottom: 5px;"  
+        name="nombre"
+        [class.is-invalid]="NombreF!.touched && NombreF!.invalid"
+        [class.is-valid]="NombreF!.touched && NombreF!.valid"
+        [(ngModel)]="proyectos.nombre"
+        formControlName="nombreF" 
+        type="text">
+    
+        <label for="descripcion" style="line-height: 0px;">Descripcion</label>
+        <input 
+        class="form-control" 
+        style="margin-bottom: 5px;" 
+        name="descripcion"
+        [class.is-invalid]="DescripcionF!.touched && DescripcionF!.invalid"
+        [class.is-valid]="DescripcionF!.touched && DescripcionF!.valid"
+        [(ngModel)]="proyectos.descripcion"
+        formControlName="descripcionF" 
+        type="text">
+    
+        <label for="lugar" style="line-height: 0px;">Lugar</label>
+        <input 
+        class="form-control"
+        style="margin-bottom: 5px;"
+        name="lugar"
+        [class.is-invalid]="LugarF!.touched && LugarF!.invalid"
+        [class.is-valid]="LugarF!.touched && LugarF!.valid"
+        [(ngModel)]="proyectos.lugar"
+        formControlName="lugarF" 
+        type="text">
+    
+        <label for="fecha" style="line-height: 0px;">Fecha</label>
+        <input 
+        class="form-control"
+        style="margin-bottom: 5px;"
+        name="fecha"
+        [class.is-invalid]="FechaF!.touched && FechaF!.invalid"
+        [class.is-valid]="FechaF!.touched && FechaF!.valid"
+        [(ngModel)]="proyectos.fecha"
+        formControlName="fechaF"
+        type="text">
+      </div>
+    
+      <div class="d-flex justify-content-center" style="padding: 0px; border-top: 1px lightgray solid">
+        <button class="btn btn-default" style="width:50%; border-right: 1px lightgray solid; padding: 15px" (click)="cancelar()">Cancelar</button>
+        <button class="btn btn-default" style="width:50%; padding: 15px" type="submit" (click)="onEditar()">Guardar</button>
+      </div>
+    </form>
+  </div>
