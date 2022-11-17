@@ -1,12 +1,19 @@
 /*Ocultar la barra de navegación, funciona en la mayoria de navegadores web*/
-html {
+html, body {
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
     overflow: scroll;
     overflow-x: hidden;
 }
 html::-webkit-scrollbar {
     width: 0; 
     background: transparent; 
+    -webkit-appearance: none;
 }
+::-webkit-scrollbar {
+    display: none;/* Safari and Chrome */
+}
+
 /*Letra general*/
 body{
     z-index: -1;
