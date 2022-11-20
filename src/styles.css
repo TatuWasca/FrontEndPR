@@ -6,7 +6,8 @@ html, body {
     overflow-x: hidden;
 }
 html::-webkit-scrollbar {
-    width: 0; 
+    width: 0;
+    display: none; 
     background: transparent; 
     -webkit-appearance: none;
 }

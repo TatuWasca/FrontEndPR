@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { Pagina404Component } from './componentes/pagina404/pagina404.component';
-import { InicioComponent } from './componentes/inicio/inicio.component';
+import { HomeComponent } from './componentes/home/home.component';
 import { NeweducacionesComponent } from './componentes/educaciones/neweducaciones.component';
 import { EditareduComponent } from './componentes/educaciones/editaredu.component';
 import { NewexperienciasComponent } from './componentes/experiencias/newexperiencias.component';
@@ -16,7 +16,7 @@ import { EditproyectosComponent } from './componentes/proyectos/editproyectos.co
 import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
-  {path: '', component:InicioComponent},
+  {path: '', component: HomeComponent},
   {path: 'error404', component: Pagina404Component},
 
   {path: 'login', component: LoginComponent},
