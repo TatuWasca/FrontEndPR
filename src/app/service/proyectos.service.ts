@@ -7,7 +7,7 @@ import { Proyectos } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class ProyectosService {
-  private baseUrl = "https://backendpr.herokuapp.com/Proyectos"
+  private baseUrl = "https://backendpr-production.up.railway.app/Proyectos"
 
   constructor(private httpCliente: HttpClient) { }
 

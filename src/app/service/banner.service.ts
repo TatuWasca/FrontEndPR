@@ -7,7 +7,7 @@ import { Banner } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class BannerService {
-  private baseUrl = "https://backendpr.herokuapp.com/Banner"
+  private baseUrl = "https://backendpr-production.up.railway.app/Banner"
 
   constructor(private httpCliente: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Educaciones } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class EducacionService {
-  private baseUrl = "https://backendpr.herokuapp.com/Educaciones"
+  private baseUrl = "https://backendpr-production.up.railway.app/Educaciones"
 
   constructor(private httpCliente: HttpClient) { }
 
