@@ -7,7 +7,7 @@ import { Hysskills } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class HysSkillsService {
-  private baseUrl = "https://backendpr-production.up.railway.app/Hysskills"
+  private baseUrl = "https://backendpr-4005.onrender.com/Hysskills"
 
   constructor(private httpCliente: HttpClient) { }
 

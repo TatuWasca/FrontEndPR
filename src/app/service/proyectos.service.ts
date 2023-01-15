@@ -7,7 +7,7 @@ import { Proyectos } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class ProyectosService {
-  private baseUrl = "https://backendpr-production.up.railway.app/Proyectos"
+  private baseUrl = "https://backendpr-4005.onrender.com/Proyectos"
 
   constructor(private httpCliente: HttpClient) { }
 

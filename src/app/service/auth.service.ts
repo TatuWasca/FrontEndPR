@@ -8,7 +8,7 @@ import { Usuario } from 'src/app/model/usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  authURL = "https://backendpr-production.up.railway.app/auth/"
+  authURL = "https://backendpr-4005.onrender.com/auth/"
 
   constructor(private httpClient: HttpClient) { }
 

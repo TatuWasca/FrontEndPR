@@ -7,7 +7,7 @@ import { Acercade } from 'src/app/model/component-models';
   providedIn: 'root'
 })
 export class AcercadeService {
-  private baseUrl = "https://backendpr-production.up.railway.app/Acercade"
+  private baseUrl = "https://backendpr-4005.onrender.com/Acercade"
 
   constructor(private httpCliente: HttpClient) { }
 
